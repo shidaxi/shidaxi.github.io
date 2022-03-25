@@ -34,9 +34,12 @@ languages:
 
     menu:
       main:
+      - identifier: posts
+        name: Posts
+        url: /
+      - identifier: tools
+        name: Tools
+        url: /tools
       - identifier: about
         name: About
         url: /about
-      - identifier: showcase
-        name: Showcase
-        url: /showcase
