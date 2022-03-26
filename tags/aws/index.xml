@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>aws on Tech Memory</title><link>/tags/aws/</link><description>Recent content in aws on Tech Memory</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 23 Jan 2021 00:00:00 +0800</lastBuildDate><atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubernetes Cheatsheet</title><link>/cheatsheets/aws-cli/</link><pubDate>Sat, 23 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/aws-cli/</guid><description>aws configure # aws cli related environement variables export AWS_PROFILE= export AWS_ACCESS_KEY_ID= export AWS_SECRET_ACCESS_KEY= export AWS_SESSION_TOKEN= export AWS_REGION=ap-southeast-1 export AWS_DEFAULT_OUTPUT=json export AWS_DEFAULT_REGION=ap-southeast-1 aws sts aws ec2 aws s3 # list bucket aws s3 ls # rename folder aws s3 --recursive mv s3://your-bucket/path/to/foo s3://your-bucket/path/to/bar aws eks # check web identity env | grep AWS_</description><content>&lt;h2 id="aws-configure">aws configure&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># aws cli related environement variables&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export AWS_PROFILE&lt;span style="color:#f92672">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export AWS_ACCESS_KEY_ID&lt;span style="color:#f92672">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export AWS_SECRET_ACCESS_KEY&lt;span style="color:#f92672">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export AWS_SESSION_TOKEN&lt;span style="color:#f92672">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export AWS_REGION&lt;span style="color:#f92672">=&lt;/span>ap-southeast-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export AWS_DEFAULT_OUTPUT&lt;span style="color:#f92672">=&lt;/span>json
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export AWS_DEFAULT_REGION&lt;span style="color:#f92672">=&lt;/span>ap-southeast-1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="aws-sts">aws sts&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="aws-ec2">aws ec2&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="aws-s3">aws s3&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># list bucket&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws s3 ls
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># rename folder&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws s3 --recursive mv s3://your-bucket/path/to/foo s3://your-bucket/path/to/bar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="aws-eks">aws eks&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># check web identity&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>env | grep AWS_
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></content></item></channel></rss>
