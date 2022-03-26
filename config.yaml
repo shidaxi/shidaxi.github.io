@@ -17,7 +17,7 @@ params:
   # center theme with default width
   centerTheme: false
   Toc: true
-  favicon: "favicon.ico"
+  favicon: "favicon.png"
   
 
 languages:
