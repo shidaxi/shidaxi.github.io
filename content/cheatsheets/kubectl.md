@@ -5,17 +5,97 @@ Docs:
 - https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 - https://erosb.github.io/post/json-patch-vs-merge-patch/
 
-## Viewing, finding resources
+## Viewing, Finding Resources
+
+### Nodes
+
+```bash
+# get node status confditions
+JSONPATH='{range .items[*]}{@.metadata.name}: {range @.status.conditions[*]}{@.type}={@.status}, {end}{"\n"}{end}' \
+ && kubectl get nodes -o jsonpath="$JSONPATH"
+```
+
+```bash
+# check node cpu / memory usage
+kubectl top pod 
+```
+
+### Pods
 
 ```bash
 # get resource sort by name
 kubectl get services --sort-by=.metadata.name
 ```
 
+```bash
+# check pod cpu / memory usage
+# all pod in current namespace
+kubectl top pod 
+# all pod and its containers in current namespace
+kubectl top pod --containers
+# this pod and its containers in current namespace
+kubectl top pod nginx-0 --containers
+# sort by cpu
+kubectl top pod --sort-by=cpu --no-headers
+# sort by memory
+kubectl top pod --sort-by=memory --no-headers
+```
+
+```bash
+# get pods which are not in Running
+kubectl get pods --field-selector=status.phase!=Running
+```
+
+```bash
+# get events for a certainer pod
+kubectl get event --namespace default --field-selector involvedObject.name=nginx-0
+```
+
+```bash
+kubectl rollout history deployment/nginx
+kubectl rollout history statefulset/nginx
+```
+
+### Others
+
+```bash
+# get configmap item
+kubectl get configmap nginx -o jsonpath='{.data.nginx\.conf}'
+```
+
+```bash
+# Produce a period-delimited tree of all keys returned for nodes
+# Helpful when locating a key within a complex nested JSON structure
+kubectl get nodes -o json | jq -c 'paths|join(".")'
+
+# Produce a period-delimited tree of all keys returned for pods, etc
+kubectl get pods -o json | jq -c 'paths|join(".")'
+```
+
+```bash
+# View api resources list
+kubectl api-resources
+kubectl api-resources --sort-by=name 
+kubectl api-resources --sort-by=kind
+
+kubectl api-resources --api-group=networking.k8s.io
+```
 
 ## Troubleshoot
 
-#### Run a debugger pod / deployment
+#### Check Resource Status
+
+```bash
+# check contaner statuses
+kubectl get pod nginx-0 -n default -o jsonpath="{.status.containerStatuses}" | jq
+```
+
+```bash
+# get events for a certainer pod
+kubectl get event --namespace default --field-selector involvedObject.name=nginx-0
+```
+
+#### Run a Debugger Pod / Deployment
 
 ```bash
 # run a mysql client pod to troubleshoot database issue:
@@ -160,11 +240,6 @@ spec:
 EOF
 ```
 
-## Useful resource templates / snippets
-```yaml
-
-```
-
 ## Awesome Kubernetes
 
 #### k9s
@@ -173,7 +248,7 @@ EOF
 #### kubectx
 [kubectx](https://github.com/ahmetb/kubectx): Kube Context Switcher
 
-#### kubectx
+#### kubectl
 [kubeval](https://github.com/instrumenta/kubeval): Validate Your K8S Yaml
 ```bash
 kubeval /tmp/a.yaml 
