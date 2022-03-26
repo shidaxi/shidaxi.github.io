@@ -1,37 +1,119 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cheatsheets on Tech Memory</title><link>/cheatsheets/</link><description>Recent content in Cheatsheets on Tech Memory</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="/cheatsheets/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>/cheatsheets/aws-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/aws-cli/</guid><description>AWS Cli Cheatsheets</description><content>&lt;h1 id="aws-cli-cheatsheets">AWS Cli Cheatsheets&lt;/h1></content></item><item><title/><link>/cheatsheets/git-gh-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/git-gh-cli/</guid><description>Git &amp;amp; Github Cli Cheatsheet</description><content>&lt;h1 id="git--github-cli-cheatsheet">Git &amp;amp; Github Cli Cheatsheet&lt;/h1></content></item><item><title/><link>/cheatsheets/kubectl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/kubectl/</guid><description>Kubectl Cheatsheet Official Docs:
-https://kubernetes.io/docs/reference/kubectl/cheatsheet/ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands Troubleshoot Run a debugger pod / deployment run a mysql client pod to troubleshoot database issue:
-# mysql kubectl run mysql --rm -i --tty --image mysql:5.7 -- bash run a busybox or netshoot pod to troubleshoot network or http issue:
-# busybox kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash # netshoot kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash Test Kubernetes Features Run a test deployment # run a test nginx deployment kubectl create deployment nginx --image=nginx # delete kubectl delete deploy nginx # run a test busybox deployment kubectl create deployment busybox --image=busybox -- sleep 1000 # delete kubectl delete deploy busybox Create yaml objects from stdin Awesome Kubernetes k9s: Terminal Graphical UI kubectx: Kube Context Switcher</description><content>&lt;h1 id="kubectl-cheatsheet">Kubectl Cheatsheet&lt;/h1>
-&lt;p>Official Docs:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cheatsheets on Tech Memory</title><link>/cheatsheets/</link><description>Recent content in Cheatsheets on Tech Memory</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="/cheatsheets/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>/cheatsheets/ansible/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/ansible/</guid><description/><content/></item><item><title/><link>/cheatsheets/aws-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/aws-cli/</guid><description>AWS Cli Cheatsheets</description><content>&lt;h1 id="aws-cli-cheatsheets">AWS Cli Cheatsheets&lt;/h1></content></item><item><title/><link>/cheatsheets/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/docker/</guid><description/><content/></item><item><title/><link>/cheatsheets/elasticsearch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/elasticsearch/</guid><description/><content/></item><item><title/><link>/cheatsheets/git-gh-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/git-gh-cli/</guid><description>Git &amp;amp; Github Cli Cheatsheet</description><content>&lt;h1 id="git--github-cli-cheatsheet">Git &amp;amp; Github Cli Cheatsheet&lt;/h1></content></item><item><title/><link>/cheatsheets/jq-yq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/jq-yq/</guid><description>jq &amp;amp; yq</description><content>&lt;h1 id="jq--yq">jq &amp;amp; yq&lt;/h1></content></item><item><title/><link>/cheatsheets/kubectl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/kubectl/</guid><description>Kubectl Cheatsheet Docs:
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands https://erosb.github.io/post/json-patch-vs-merge-patch/ Viewing, finding resources # get resource sort by name kubectl get services --sort-by=.metadata.name Troubleshoot Run a debugger pod / deployment # run a mysql client pod to troubleshoot database issue: kubectl run myclient --rm -i --tty --image mysql:5.7 -- bash # run a postgres client pod to troubleshoot database issue: kubectl run pgclient --rm -i --tty --image postgres:13-alpine -- bash # run a mongo client pod to troubleshoot mongodb issue: kubectl run mongoclient --rm -i --tty --image mongo:5 -- bash # run a busybox pod to troubleshoot network or http issue kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash # run a netshoot pod to troubleshoot network or http issue kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash Temporarily Change Resource # disable healthcheck if you want to troubleshoot healthcheck failure # --type json, use json patch(RFC 6902), check official docs kubectl patch deployment nginx --type json -p=&amp;#39;[{&amp;#34;op&amp;#34;: &amp;#34;remove&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;/spec/template/spec/containers/0/livenessProbe&amp;#34;}]&amp;#39; # change &amp;#34;command&amp;#34; to &amp;#34;sleep 1000&amp;#34; to troubleshoot entrypoint command error kubectl patch deployment nginx --type json -p=&amp;#39;[{&amp;#34;op&amp;#34;: &amp;#34;replace&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;/spec/template/spec/containers/0/command&amp;#34;, &amp;#34;value&amp;#34;:[&amp;#34;sleep&amp;#34;, &amp;#34;1000&amp;#34;]}]&amp;#39; # change image to troubleshoot software version issue kubectl patch deployment nginx --type=&amp;#39;json&amp;#39; -p=&amp;#39;[{&amp;#34;op&amp;#34;: &amp;#34;replace&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;/spec/template/spec/containers/0/image&amp;#34;, &amp;#34;value&amp;#34;:&amp;#34;nginx:1.</description><content>&lt;h1 id="kubectl-cheatsheet">Kubectl Cheatsheet&lt;/h1>
+&lt;p>Docs:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/docs/reference/kubectl/cheatsheet/&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://erosb.github.io/post/json-patch-vs-merge-patch/">https://erosb.github.io/post/json-patch-vs-merge-patch/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="troubleshoot">Troubleshoot&lt;/h2>
-&lt;h3 id="run-a-debugger-pod--deployment">Run a debugger pod / deployment&lt;/h3>
-&lt;p>run a mysql client pod to troubleshoot database issue:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># mysql&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run mysql --rm -i --tty --image mysql:5.7 -- bash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>run a busybox or netshoot pod to troubleshoot network or http issue:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># busybox&lt;/span>
+&lt;h2 id="viewing-finding-resources">Viewing, finding resources&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># get resource sort by name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get services --sort-by&lt;span style="color:#f92672">=&lt;/span>.metadata.name
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="troubleshoot">Troubleshoot&lt;/h2>
+&lt;h4 id="run-a-debugger-pod--deployment">Run a debugger pod / deployment&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run a mysql client pod to troubleshoot database issue:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run myclient --rm -i --tty --image mysql:5.7 -- bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run a postgres client pod to troubleshoot database issue:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run pgclient --rm -i --tty --image postgres:13-alpine -- bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run a mongo client pod to troubleshoot mongodb issue:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run mongoclient --rm -i --tty --image mongo:5 -- bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run a busybox pod to troubleshoot network or http issue&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run a netshoot pod to troubleshoot network or http issue&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="temporarily-change-resource">Temporarily Change Resource&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># disable healthcheck if you want to troubleshoot healthcheck failure&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --type json, use json patch(RFC 6902), check official docs&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl patch deployment nginx --type json -p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;[{&amp;#34;op&amp;#34;: &amp;#34;remove&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;/spec/template/spec/containers/0/livenessProbe&amp;#34;}]&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># change &amp;#34;command&amp;#34; to &amp;#34;sleep 1000&amp;#34; to troubleshoot entrypoint command error&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl patch deployment nginx --type json -p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;[{&amp;#34;op&amp;#34;: &amp;#34;replace&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;/spec/template/spec/containers/0/command&amp;#34;, &amp;#34;value&amp;#34;:[&amp;#34;sleep&amp;#34;, &amp;#34;1000&amp;#34;]}]&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># change image to troubleshoot software version issue&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl patch deployment nginx --type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;json&amp;#39;&lt;/span> -p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;[{&amp;#34;op&amp;#34;: &amp;#34;replace&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;/spec/template/spec/containers/0/image&amp;#34;, &amp;#34;value&amp;#34;:&amp;#34;nginx:1.21&amp;#34;}]&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># netshoot&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or with set image sub cmd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl set image deployment/nginx nginx&lt;span style="color:#f92672">=&lt;/span>nginx:1.21 &lt;span style="color:#75715e"># {containerName}=${image}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># scale a deployment&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl scale --replicas&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> deploy/nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># scale a statefulset&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl scale --replicas&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> statefulset/nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># scale multiple deployments&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl scale --replicas&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> deploy/nginx1 deploy/nginx2 deploy/nginx3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># scale with kubctl patch&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl patch deploy nginx --patch &lt;span style="color:#e6db74">&amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;replicas&amp;#34;: 2}}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># restart container inside your pod without chaging pod name and pod ip&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl exec -it nginx-0 -- /bin/sh -c &lt;span style="color:#e6db74">&amp;#34;kill 1&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="test-kubernetes-features">Test Kubernetes Features&lt;/h2>
-&lt;h3 id="run-a-test-deployment">Run a test deployment&lt;/h3>
+&lt;h4 id="run-a-test-deployment">Run a test Deployment&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run a test nginx deployment&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl create deployment nginx --image&lt;span style="color:#f92672">=&lt;/span>nginx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># delete&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># delete&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete deploy nginx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run a test busybox deployment&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run a test busybox deployment&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl create deployment busybox --image&lt;span style="color:#f92672">=&lt;/span>busybox -- sleep &lt;span style="color:#ae81ff">1000&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># delete&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># delete&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete deploy busybox
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="create-yaml-objects-from-stdin">Create yaml objects from stdin&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="awesome-kubernetes">Awesome Kubernetes&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/derailed/k9s">k9s&lt;/a>: Terminal Graphical UI&lt;/li>
-&lt;li>&lt;a href="https://github.com/ahmetb/kubectx">kubectx&lt;/a>: Kube Context Switcher&lt;/li>
-&lt;/ul></content></item><item><title/><link>/cheatsheets/openssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/openssl/</guid><description/><content/></item><item><title/><link>/cheatsheets/vim/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/vim/</guid><description/><content/></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="create-yaml-objects-from-stdin">Create yaml objects from stdin&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># create nginx statefulset&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export APP_NAME&lt;span style="color:#f92672">=&lt;/span>nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export IMAGE&lt;span style="color:#f92672">=&lt;/span>nginx:latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat &lt;span style="color:#e6db74">&amp;lt;&amp;lt;EOF | kubectl apply -f -
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">apiVersion: v1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">kind: Service
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">metadata:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> name: ${APP_NAME}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> labels:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> app: ${APP_NAME}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">spec:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> ports:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> - port: 80
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> name: web
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> clusterIP: None
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> selector:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> app: ${APP_NAME}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">---
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">apiVersion: apps/v1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">kind: StatefulSet
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">metadata:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> name: ${APP_NAME}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">spec:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> serviceName: ${APP_NAME}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> replicas: 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> selector:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> matchLabels:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> app: ${APP_NAME}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> template:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> metadata:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> labels:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> app: ${APP_NAME}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> spec:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> containers:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> - name: ${APP_NAME}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> image: ${IMAGE}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> ports:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> - containerPort: 80
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> name: web
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># volumeMounts:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># - name: www
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># mountPath: /usr/share/nginx/html
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># volumeClaimTemplates:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># - metadata:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># name: www
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># spec:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># accessModes: [ &amp;#34;ReadWriteOnce&amp;#34; ]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># resources:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># requests:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"># storage: 1Gi
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">EOF&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-resource-templates--snippets">Useful resource templates / snippets&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="awesome-kubernetes">Awesome Kubernetes&lt;/h2>
+&lt;h4 id="k9s">k9s&lt;/h4>
+&lt;p>&lt;a href="https://github.com/derailed/k9s">k9s&lt;/a>: Terminal Graphical UI&lt;/p>
+&lt;h4 id="kubectx">kubectx&lt;/h4>
+&lt;p>&lt;a href="https://github.com/ahmetb/kubectx">kubectx&lt;/a>: Kube Context Switcher&lt;/p>
+&lt;h4 id="kubectx-1">kubectx&lt;/h4>
+&lt;p>&lt;a href="https://github.com/instrumenta/kubeval">kubeval&lt;/a>: Validate Your K8S Yaml&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>kubeval /tmp/a.yaml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PASS - /tmp/a.yaml contains a valid Service &lt;span style="color:#f92672">(&lt;/span>nginx&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PASS - /tmp/a.yaml contains a valid StatefulSet &lt;span style="color:#f92672">(&lt;/span>nginx&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></content></item><item><title/><link>/cheatsheets/openssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/openssl/</guid><description/><content/></item><item><title/><link>/cheatsheets/vim/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/vim/</guid><description/><content/></item></channel></rss>
