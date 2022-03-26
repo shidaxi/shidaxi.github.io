@@ -1,3 +1,21 @@
+---
+title: Kubernetes Cheatsheet
+date: "2021-01-23T00:00:00+08:00"
+cover: "images/cover-kubernetes-resources.png"
+tags: 
+  - kubectl
+  - cheatsheet
+  - kubernetes
+  - k8s
+keywords: 
+  - kubectl
+  - cheatsheet
+  - kubernetes
+  - k8s
+description: ""
+showFullContent: false
+readingTime: false
+---
 # Kubernetes
 
 ## Useful Resource Templates / Snippets

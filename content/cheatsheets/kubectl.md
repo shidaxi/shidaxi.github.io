@@ -1,3 +1,24 @@
+---
+title: Kubectl Cheatsheet
+date: "2021-03-23T00:00:00+08:00"
+author: ""
+authorTwitter: "" 
+cover: "images/cover-kubectl.png"
+tags: 
+  - kubectl
+  - cheatsheet
+  - kubernetes
+  - k8s
+keywords: 
+  - kubectl
+  - cheatsheet
+  - kubernetes
+  - k8s
+description: ""
+showFullContent: false
+readingTime: false
+---
+
 # Kubectl Cheatsheet
 
 Docs: 
@@ -83,7 +104,7 @@ kubectl api-resources --api-group=networking.k8s.io
 
 ## Troubleshoot
 
-#### Check Resource Status
+### Check Resource Status
 
 ```bash
 # check contaner statuses
@@ -95,7 +116,7 @@ kubectl get pod nginx-0 -n default -o jsonpath="{.status.containerStatuses}" | j
 kubectl get event --namespace default --field-selector involvedObject.name=nginx-0
 ```
 
-#### Run a Debugger Pod / Deployment
+### Run a Debugger Pod / Deployment
 
 ```bash
 # run a mysql client pod to troubleshoot database issue:
@@ -122,7 +143,7 @@ kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash
 kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash
 ```
 
-#### Temporarily Change Resource
+### Temporarily Change Resource
 
 ```bash
 # disable healthcheck if you want to troubleshoot healthcheck failure
@@ -161,7 +182,7 @@ kubectl exec -it nginx-0 -- /bin/sh -c "kill 1"
 
 ## Test Kubernetes Features
 
-#### Run a test Deployment
+### Run a Test Deployment
 
 ```bash
 # run a test nginx deployment
@@ -183,7 +204,7 @@ kubectl create deployment busybox --image=busybox -- sleep 1000
 kubectl delete deploy busybox 
 ```
 
-#### Create yaml objects from stdin
+### Create YAML Objects from Stdin
 
 ```bash
 # create nginx statefulset
@@ -242,16 +263,19 @@ EOF
 
 ## Awesome Kubernetes
 
-#### k9s
+### k9s
 [k9s](https://github.com/derailed/k9s): Terminal Graphical UI
 
-#### kubectx
+### kubectx
 [kubectx](https://github.com/ahmetb/kubectx): Kube Context Switcher
 
-#### kubectl
+### kubectl
 [kubeval](https://github.com/instrumenta/kubeval): Validate Your K8S Yaml
 ```bash
 kubeval /tmp/a.yaml 
 PASS - /tmp/a.yaml contains a valid Service (nginx)
 PASS - /tmp/a.yaml contains a valid StatefulSet (nginx)
 ```
+
+### krew
+[krew](https://github.com/kubernetes-sigs/krew): kubectl plugin package manager
