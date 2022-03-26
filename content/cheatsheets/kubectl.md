@@ -3,7 +3,7 @@ title: Kubectl Cheatsheet
 date: "2021-03-23T00:00:00+08:00"
 author: ""
 authorTwitter: "" 
-cover: "images/cover-kubectl.png"
+cover: "images/cover-kubectl-cheatsheet.png"
 tags: 
   - kubectl
   - cheatsheet

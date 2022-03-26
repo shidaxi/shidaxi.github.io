@@ -1,7 +1,7 @@
 ---
-title: Kubernetes Cheatsheet
+title: AWS CLI Cheatsheet
 date: "2021-01-23T00:00:00+08:00"
-cover: "images/cover-kubernetes-resources.png"
+cover: "images/cover-aws-cli-cheatsheet.png"
 tags: 
   - aws
   - awscli
