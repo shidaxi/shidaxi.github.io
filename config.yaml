@@ -16,6 +16,8 @@ params:
   fullWidthTheme: false
   # center theme with default width
   centerTheme: false
+  Toc: true
+  
 
 languages:
   en:
@@ -43,3 +45,9 @@ languages:
       - identifier: about
         name: About
         url: /about
+      - identifier: cheatsheets
+        name: Cheatsheets
+        url: /cheatsheets
+      - identifier: icon-collections
+        name: Icon
+        url: /icon-collections
