@@ -30,12 +30,39 @@ export AWS_DEFAULT_REGION=ap-southeast-1
 
 ## aws sts
 ```bash
+# get current identity
+aws sts get-caller-identity
+```
 
+```bash
+# assume role and set credentials to env variables, with jq
+ROLE_ARN=arn:aws:iam::000000000000:role/your-role
+eval $(aws sts assume-role \
+        --role-arn ${ROLE_ARN} \
+        --role-session-name sess-name \
+        | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId) AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey) AWS_SESSION_TOKEN=\(.SessionToken)"'
+      )
+```
+
+```bash
+# assume role and set credentials to env variables, with sed & awk
+ROLE_ARN=arn:aws:iam::000000000000:role/your-role
+eval $(aws sts assume-role \
+        --role-arn ${ROLE_ARN} \
+        --role-session-name sess-name \ 
+        | egrep '(SecretAccessKey|SessionToken|AccessKeyId)' \
+        | awk -F'"' '{print "export AWS"toupper(gensub(/([A-Z])/, "_\\1", "g",$2))"="$4}'
+      )
 ```
 
 ## aws ec2
 ```bash
+# login to ec2 shell via session manager
+aws ssm start-session --target i-aaaaaaaaaaaaaaaaaa
+```
 
+```bash
+# port-forward
 ```
 
 ## aws s3
