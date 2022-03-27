@@ -118,7 +118,9 @@ aws ec2 describe-instances \
 
 ```bash
 # --output table makes outputs more human readable.
-
+aws ec2 describe-instances \
+    --filters "Name=tag:Owner,Values=my-team"
+    --output table
 ```
 ![aws cli output table format](images/aws-cli-output-table-format.png)
 
