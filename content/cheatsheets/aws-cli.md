@@ -16,17 +16,16 @@ readingTime: false
 ---
 
 ## aws configure
-```bash
+{{< carbon lang="shell" height="320px" >}}
 # aws cli related environement variables
 export AWS_PROFILE=
 export AWS_ACCESS_KEY_ID=
 export AWS_SECRET_ACCESS_KEY=
 export AWS_SESSION_TOKEN=
 export AWS_REGION=ap-southeast-1
-
 export AWS_DEFAULT_OUTPUT=json
-export AWS_DEFAULT_REGION=ap-southeast-1
-```
+export AWS_DEFAULT_REGION=ap-southeast-1                                   
+{{</ carbon >}}
 
 ## cli output filtering
 
@@ -62,12 +61,12 @@ The AWS CLI provides built-in JSON-based client-side filtering capabilities with
 ```
 
 ## aws sts
-```bash
+{{< carbon lang="shell" height="220px" >}}
 # get current identity
-aws sts get-caller-identity
-```
+aws sts get-caller-identity                                                          
+{{< /carbon >}}
 
-```bash
+{{< carbon lang="shell" height="580px" >}}
 # assume role and set credentials to env variables, with jq
 ROLE_ARN=arn:aws:iam::000000000000:role/your-role
 eval $(aws sts assume-role \
@@ -75,9 +74,6 @@ eval $(aws sts assume-role \
         --role-session-name sess-name \
         | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId) AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey) AWS_SESSION_TOKEN=\(.SessionToken)"'
       )
-```
-
-```bash
 # assume role and set credentials to env variables, with sed & awk
 ROLE_ARN=arn:aws:iam::000000000000:role/your-role
 eval $(aws sts assume-role \
@@ -86,79 +82,87 @@ eval $(aws sts assume-role \
         | egrep '(SecretAccessKey|SessionToken|AccessKeyId)' \
         | awk -F'"' '{print "export AWS"toupper(gensub(/([A-Z])/, "_\\1", "g",$2))"="$4}'
       )
-```
+{{< /carbon >}}
 
 ## aws ec2
 
-```bash
+{{< carbon lang="shell" height="470px" >}}
 # find ec2 with --filters
 aws ec2 describe-instances \
     --filters Name=instance-type,Values=t2.micro,t3.micro 
-              Name=availability-zone,Values=us-east-2c
-```
+              Name=availability-zone,Values=us-east-2c                                        
 
-```bash
 # find ec2 with --filters by tag
 aws ec2 describe-instances \
     --filters Name=tag:Owner,Values=my-team
-```
 
-```bash
 # find ec2 with --filters by tag
 aws ec2 describe-instances \
     --filters "Name=tag:Owner,Values=my-team"
-```
+{{< /carbon >}}
 
-```bash
+{{< carbon lang="shell" height="760px" >}}
 # get only useful information of ec2 instances wich both --filters and --query
 aws ec2 describe-instances \
     --filters "Name=tag:Owner,Values=my-team"
     --query 'Reservations[*].Instances[*].{Instance:InstanceId, Name:Tags[?Key==`Name`]|[0].Value}'
-```
 
-```bash
 # --output table makes outputs more human readable.
 aws ec2 describe-instances \
-    --filters "Name=tag:Owner,Values=my-team"
+    --filters Name=tag-key,Values=Name \
+    --query 'Reservations[*].Instances[*].{Instance:InstanceId,AZ:Placement.AvailabilityZone,Name:Tags[?Key==`Name`]|[0].Value}' \
     --output table
-```
-![aws cli output table format](images/aws-cli-output-table-format.png)
 
-```bash
+-------------------------------------------------------------
+|                     DescribeInstances                     |
++--------------+-----------------------+--------------------+
+|      AZ      |       Instance        |        Name        |
++--------------+-----------------------+--------------------+
+|  us-east-2b  |  i-057750d42936e468a  |  my-prod-server    |
+|  us-east-2a  |  i-001efd250faaa6ffa  |  test-server-1     |
+|  us-east-2a  |  i-027552a73f021f3bd  |  test-server-2     |
++--------------+-----------------------+--------------------+
+{{< /carbon >}}
+
+{{< carbon lang="shell" height="320px" >}}
 # login to ec2 shell via session manager
 aws ssm start-session --target i-aaaaaaaaaaaaaaaaaa
-```
-
-```bash
+                                                                                           
 # port-forward
-```
+
+{{< /carbon >}}
 
 ## aws s3
-```bash
+{{< carbon lang="shell" height="320px" >}}
 # list bucket
 aws s3 ls
-```
-
-```bash
+                                                                                           
 # rename folder
 aws s3 --recursive mv s3://your-bucket/path/to/foo s3://your-bucket/path/to/bar
-```
+{{< /carbon >}}
+
 
 ## aws eks
 
-```bash
-# check web identity
+{{< carbon lang="shell" height="320px" >}}
+# check web identity of pod
 env | grep AWS_
-```
+
+# get cluster name
+aws eks list-clusters
+
+# get kubeconfig
+aws eks update-kubeconfig --name your-cluster-name
+                                                                                        
+{{< /carbon >}}
 
 ## cloudfront
 
-```bash
+{{< carbon lang="shell" height="320px" >}}
 # list distributions with id, aliases, domian name and origin
-aws cloudfront list-distributions | jq  '.DistributionList.Items[] | {"Id": .Id, "Aliases": .Aliases.Items, "Domain": .DomainName, "Origin": .Origins.Items[0].DomainName}'
-```
+aws cloudfront list-distributions \
+  | jq  '.DistributionList.Items[] | {"Id": .Id, "Aliases": .Aliases.Items, "Domain": .DomainName, "Origin": .Origins.Items[0].DomainName}'
 
-```bash
 # create an invalidation, clear cache
 aws cloudfront create-invalidation distribution-id
-```
+{{< /carbon >}}

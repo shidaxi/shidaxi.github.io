@@ -1,7 +1,7 @@
 baseUrl: /
 languageCode: en-us
 theme: terminal
-paginate: 5
+paginate: 10
 
 params:
   # dir name of your blog content (default is `content/posts`)
@@ -17,6 +17,7 @@ params:
   # center theme with default width
   centerTheme: false
   Toc: true
+  autoCover: true
   favicon: "favicon.png"
   
 
