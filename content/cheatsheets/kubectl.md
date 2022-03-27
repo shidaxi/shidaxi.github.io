@@ -41,6 +41,11 @@ JSONPATH='{range .items[*]}{@.metadata.name}: {range @.status.conditions[*]}{@.t
 kubectl top pod 
 ```
 
+```bash
+# check node status
+kubectl describe nodes kubernetes-minion-emt8.c.myproject.internal
+```
+
 ### Pods
 
 ```bash
