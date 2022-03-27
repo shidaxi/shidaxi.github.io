@@ -222,6 +222,9 @@ server side filtering with option &amp;ndash;filter Server-side filtering in the
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --filters &lt;span style="color:#e6db74">&amp;#34;Name=tag:Owner,Values=my-team&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --query &lt;span style="color:#e6db74">&amp;#39;Reservations[*].Instances[*].{Instance:InstanceId, Name:Tags[?Key==`Name`]|[0].Value}&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --output table makes outputs more human readable.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws ec2 describe-instances &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --filters &lt;span style="color:#e6db74">&amp;#34;Name=tag:Owner,Values=my-team&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --output table
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="images/aws-cli-output-table-format.png" alt="aws cli output table format">&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># login to ec2 shell via session manager&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws ssm start-session --target i-aaaaaaaaaaaaaaaaaa

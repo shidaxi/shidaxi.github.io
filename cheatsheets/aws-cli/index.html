@@ -47,6 +47,9 @@ server side filtering with option &amp;ndash;filter Server-side filtering in the
 </span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --filters <span style=color:#e6db74>&#34;Name=tag:Owner,Values=my-team&#34;</span>
 </span></span><span style=display:flex><span>    --query <span style=color:#e6db74>&#39;Reservations[*].Instances[*].{Instance:InstanceId, Name:Tags[?Key==`Name`]|[0].Value}&#39;</span>
 </span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># --output table makes outputs more human readable.</span>
+</span></span><span style=display:flex><span>aws ec2 describe-instances <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --filters <span style=color:#e6db74>&#34;Name=tag:Owner,Values=my-team&#34;</span>
+</span></span><span style=display:flex><span>    --output table
 </span></span></code></pre></div><p><img src=images/aws-cli-output-table-format.png alt="aws cli output table format"></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># login to ec2 shell via session manager</span>
 </span></span><span style=display:flex><span>aws ssm start-session --target i-aaaaaaaaaaaaaaaaaa
 </span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># port-forward</span>
