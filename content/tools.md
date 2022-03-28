@@ -7,3 +7,6 @@
 * [JWT Debugger](/jwt-debugger): JWT token debugger
 * [Simple Drawer](https://w-draw.web.app/): Simple Drawer
 * [Image Converter](https://renzhezhilu.github.io/webp2jpg-online): An online image converter
+* [Carbon](https://carbon.now.sh): A code to beautiful image tool
+* [Ray.so](https://ray.so): A code to beautiful image tool
+* [regex101](https://regex101.com/): Regular expresssion tester
