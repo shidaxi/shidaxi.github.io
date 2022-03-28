@@ -284,3 +284,6 @@ PASS - /tmp/a.yaml contains a valid StatefulSet (nginx)
 
 ### krew
 [krew](https://github.com/kubernetes-sigs/krew): kubectl plugin package manager
+
+### kube-ps1
+[kube-ps1](https://github.com/jonmosco/kube-ps1): Show current context in your $PS1, useful when working with multiple clusters.

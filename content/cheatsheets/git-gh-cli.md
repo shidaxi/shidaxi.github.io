@@ -14,3 +14,27 @@ description: ""
 showFullContent: false
 readingTime: false
 ---
+
+# Git
+
+## branch
+{{< carbon lang="shell" >}}
+# checkout from tag 
+git checkout tags/v1.0.0 -b v1.0.0
+{{< /carbon >}}
+
+## tag
+
+{{< carbon lang="shell" >}}
+# list newest 10 tags
+git tag -l | tail
+{{< /carbon >}}
+
+## submodule
+
+{{< carbon lang="shell" >}}
+# checkout from tag 
+git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
+{{< /carbon >}}
+
+# Github CLI
