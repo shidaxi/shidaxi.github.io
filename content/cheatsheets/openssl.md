@@ -14,3 +14,8 @@ description: ""
 showFullContent: false
 readingTime: false
 ---
+
+{{< carbon lang="shell" >}}
+# check https server certificate 
+openssl s_client -showcerts -servername www.example.com -connect httpbin.org:443 </dev/null
+{{< /carbon >}}

@@ -104,7 +104,7 @@ aws ec2 describe-instances \
 {{< carbon lang="shell" height="760px" >}}
 # get only useful information of ec2 instances wich both --filters and --query
 aws ec2 describe-instances \
-    --filters "Name=tag:Owner,Values=my-team"
+    --filters "Name=tag:Owner,Values=my-team" \
     --query 'Reservations[*].Instances[*].{Instance:InstanceId, Name:Tags[?Key==`Name`]|[0].Value}'
 
 # --output table makes outputs more human readable.
@@ -164,5 +164,36 @@ aws cloudfront list-distributions \
   | jq  '.DistributionList.Items[] | {"Id": .Id, "Aliases": .Aliases.Items, "Domain": .DomainName, "Origin": .Origins.Items[0].DomainName}'
 
 # create an invalidation, clear cache
-aws cloudfront create-invalidation distribution-id
+aws cloudfront create-invalidation --distribution-id E3NXXXXXXXXXXX --paths "/*"
 {{< /carbon >}}
+
+## acm
+
+{{< carbon lang="shell" >}}
+# describe certificates
+for c in $(aws acm list-certificates \
+          --query 'CertificateSummaryList[].CertificateArn' --output text)
+do aws acm describe-certificate --certificate-arn $c \
+    --query 'Certificate.{CertificateArn:CertificateArn,DomainName:DomainName,SubjectAlternativeNames:SubjectAlternativeNames,Status:Status,NotAfter:NotAfter}' | jq
+done
+{{< /carbon >}}
+
+
+## route53
+
+{{< carbon lang="shell" >}}
+
+# list zones
+aws route53 list-hosted-zones | jq
+# create zone
+aws route53 create-hosted-zone --name example.com --caller-reference 2014-04-01-18:47 | jq
+# get zone id by zone name
+aws route53 list-hosted-zones --query 'HostedZones[?Name==`example.com.`] | [0].Id' --output text
+# list record sets by zone name
+aws route53 list-resource-record-sets --hosted-zone-id $(aws route53 list-hosted-zones --query 'HostedZones[?Name==`example.com.`] | [0].Id' --output text) | jq
+
+# create record set
+
+
+{{< /carbon >}}
+
