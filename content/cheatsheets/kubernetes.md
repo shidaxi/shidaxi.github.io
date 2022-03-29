@@ -20,7 +20,7 @@ readingTime: false
 
 ## Useful Resource Templates / Snippets
 
-```yaml
+{{< carbon lang="yaml" >}}
 # deployment
 apiVersion: apps/v1
 kind: Deployment
@@ -44,10 +44,10 @@ spec:
         image: nginx:1.21
         ports:
         - containerPort: 80
-```
+{{< /carbon >}}
 
 
-```yaml
+{{< carbon lang="yaml" >}}
 # statefulset
 apiVersion: apps/v1
 kind: Statefulset
@@ -83,9 +83,9 @@ spec:
       resources:
         requests:
           storage: 1Gi
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # service
 apiVersion: v1
 kind: Service
@@ -100,9 +100,9 @@ spec:
     name: web
   selector:
     app: nginx
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # ingress
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -124,9 +124,9 @@ spec:
               number: 80
         path: /
         pathType: ImplementationSpecific
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # configmap
 apiVersion: v1
 kind: ConfigMap
@@ -157,9 +157,9 @@ data:
       }
     }
     
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # secret
 apiVersion: v1
 kind: Secret
@@ -170,25 +170,25 @@ type: Opaque
 data:
   username: YWRtaW4=
   password: MWYyZDFlMmU2N2Rm
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # role
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # rolebinding
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # clusterrole
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # clusterrolebinding
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # livenessProbe and readinessProbe with http protocol
 spec:
   containers:
@@ -211,9 +211,9 @@ spec:
           value: Awesome
       initialDelaySeconds: 3
       periodSeconds: 3
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # livenessProbe and readinessProbe with TCP protocol
 spec:
   containers:
@@ -228,12 +228,56 @@ spec:
         port: 8080
       initialDelaySeconds: 15
       periodSeconds: 20
-```
+{{< /carbon >}}
 
-```yaml
+{{< carbon lang="yaml" >}}
 # mount a configmap
-```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/nginx
+        subPath:
+  volumes:
+    - name: config-volume
+      configMap:
+        name: nginx
+{{< /carbon >}}
 
-```yaml
-# env from
-```
+{{< carbon lang="yaml" >}}
+# env from configmap or secret
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      env:
+      - name: SECRET_USERNAME
+        valueFrom:
+          configMapKeyRef:
+            name: nginx
+            key: username
+            optional: false
+      - name: SECRET_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: nginx
+            key: password
+            optional: false
+      envFrom:
+      - configMapRef:
+          name: nginx
+      - secretRef:
+          name: nginx
+{{< /carbon >}}

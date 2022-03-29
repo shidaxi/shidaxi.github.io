@@ -38,3 +38,21 @@ git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/term
 {{< /carbon >}}
 
 # Github CLI
+
+
+# Git Ignore
+
+https://github.com/github/gitignore
+
+## Frequently Used
+
+### misc
+
+```bash
+# macOS
+.DS_Store
+
+# Vi / Vim
+*.swp
+
+```
