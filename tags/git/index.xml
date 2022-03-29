@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>git on Tech Memory</title><link>/tags/git/</link><description>Recent content in git on Tech Memory</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 13 Feb 2021 00:00:00 +0800</lastBuildDate><atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git &amp; Github Cheatsheet</title><link>/cheatsheets/git-gh-cli/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/git-gh-cli/</guid><description>Git branch tag submodule Github CLI</description><content>&lt;h1 id="git">Git&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>git on Tech Memory</title><link>/tags/git/</link><description>Recent content in git on Tech Memory</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 13 Feb 2021 00:00:00 +0800</lastBuildDate><atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git &amp; Github Cheatsheet</title><link>/cheatsheets/git-gh-cli/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/git-gh-cli/</guid><description>Git branch tag submodule Github CLI Git Ignore https://github.com/github/gitignore
+Frequently Used misc # macOS .DS_Store # Vi / Vim *.swp</description><content>&lt;h1 id="git">Git&lt;/h1>
 &lt;h2 id="branch">branch&lt;/h2>
 &lt;iframe
 src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20checkout%20from%20tag%20%0agit%20checkout%20tags%2fv1.0.0%20-b%20v1.0.0%0a'
@@ -20,4 +21,14 @@ style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
 &lt;/iframe>
-&lt;h1 id="github-cli">Github CLI&lt;/h1></content></item></channel></rss>
+&lt;h1 id="github-cli">Github CLI&lt;/h1>
+&lt;h1 id="git-ignore">Git Ignore&lt;/h1>
+&lt;p>&lt;a href="https://github.com/github/gitignore">https://github.com/github/gitignore&lt;/a>&lt;/p>
+&lt;h2 id="frequently-used">Frequently Used&lt;/h2>
+&lt;h3 id="misc">misc&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># macOS&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.DS_Store
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Vi / Vim&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>*.swp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></content></item></channel></rss>

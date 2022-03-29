@@ -169,7 +169,8 @@ src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
-&lt;/iframe></content></item><item><title>Git &amp; Github Cheatsheet</title><link>/cheatsheets/git-gh-cli/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/git-gh-cli/</guid><description>Git branch tag submodule Github CLI</description><content>&lt;h1 id="git">Git&lt;/h1>
+&lt;/iframe></content></item><item><title>Git &amp; Github Cheatsheet</title><link>/cheatsheets/git-gh-cli/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/git-gh-cli/</guid><description>Git branch tag submodule Github CLI Git Ignore https://github.com/github/gitignore
+Frequently Used misc # macOS .DS_Store # Vi / Vim *.swp</description><content>&lt;h1 id="git">Git&lt;/h1>
 &lt;h2 id="branch">branch&lt;/h2>
 &lt;iframe
 src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20checkout%20from%20tag%20%0agit%20checkout%20tags%2fv1.0.0%20-b%20v1.0.0%0a'
@@ -191,7 +192,17 @@ style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
 &lt;/iframe>
-&lt;h1 id="github-cli">Github CLI&lt;/h1></content></item><item><title>AWS CLI Cheatsheet</title><link>/cheatsheets/aws-cli/</link><pubDate>Sat, 23 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/aws-cli/</guid><description>aws configure cli output filtering For basic syntax, please refer to https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html
+&lt;h1 id="github-cli">Github CLI&lt;/h1>
+&lt;h1 id="git-ignore">Git Ignore&lt;/h1>
+&lt;p>&lt;a href="https://github.com/github/gitignore">https://github.com/github/gitignore&lt;/a>&lt;/p>
+&lt;h2 id="frequently-used">Frequently Used&lt;/h2>
+&lt;h3 id="misc">misc&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># macOS&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.DS_Store
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Vi / Vim&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>*.swp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></content></item><item><title>AWS CLI Cheatsheet</title><link>/cheatsheets/aws-cli/</link><pubDate>Sat, 23 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/aws-cli/</guid><description>aws configure cli output filtering For basic syntax, please refer to https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html
 This article only share some practical examples.
 server side filtering with option &amp;ndash;filter Server-side filtering in the AWS CLI is provided by the AWS service API. The AWS service only returns the records in the HTTP response that match your filter, which can speed up HTTP response times for large data sets. Since server-side filtering is defined by the service API, the parameter names and functions vary between services.</description><content>&lt;h2 id="aws-configure">aws configure&lt;/h2>
 &lt;iframe
@@ -276,188 +287,96 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/iframe>
 &lt;h2 id="route53">route53&lt;/h2>
 &lt;iframe
-src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%0a%23%20list%20zones%0aaws%20route53%20list-hosted-zones%20%7c%20jq%0a%23%20create%20zone%0aaws%20route53%20create-hosted-zone%20--name%20example.com%20--caller-reference%202014-04-01-18%3a47%20%7c%20jq%0a%23%20get%20zone%20id%20by%20zone%20name%0aaws%20route53%20list-hosted-zones%20--query%20%27HostedZones%5b%3fName%3d%3d%60example.com.%60%5d%20%7c%20%5b0%5d.Id%27%20--output%20text%0a%23%20list%20record%20sets%20by%20zone%20name%0aaws%20route53%20list-resource-record-sets%20--hosted-zone-id%20%24%28aws%20route53%20list-hosted-zones%20--query%20%27HostedZones%5b%3fName%3d%3d%60example.com.%60%5d%20%7c%20%5b0%5d.Id%27%20--output%20text%29%20%7c%20jq%0a%0a%23%20create%20record%20set%0a%0a%0a'
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%0a%23%20list%20zones%0aaws%20route53%20list-hosted-zones%20%7c%20jq%0a%23%20create%20zone%0aaws%20route53%20create-hosted-zone%20--name%20example.com%20--caller-reference%202014-04-01-18%3a47%20%7c%20jq%0a%23%20get%20zone%20id%20by%20zone%20name%0aaws%20route53%20list-hosted-zones%20%5c%0a%20%20--query%20%27HostedZones%5b%3fName%3d%3d%60example.com.%60%5d%20%7c%20%5b0%5d.Id%27%20%0a%20%20--output%20text%0a%23%20list%20record%20sets%20by%20zone%20name%0aaws%20route53%20list-resource-record-sets%20%5c%0a%20%20--hosted-zone-id%20%24%28aws%20route53%20list-hosted-zones%20%5c%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--query%20%27HostedZones%5b%3fName%3d%3d%60example.com.%60%5d%20%7c%20%5b0%5d.Id%27%20%5c%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--output%20text%29%20%5c%0a%20%20%7c%20jq%0a%23%20list%20CNAME%20record%20sets%20by%20zone%20name%20%0aaws%20route53%20list-resource-record-sets%20%5c%0a%20%20--hosted-zone-id%20%24%28aws%20route53%20list-hosted-zones%20%5c%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--query%20%27HostedZones%5b%3fName%3d%3d%60example.com.%60%5d%20%7c%20%5b0%5d.Id%27%20%5c%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--output%20text%29%20%5c%0a%20%20--query%20%27ResourceRecordSets%5b%3fType%3d%3d%60CNAME%60%5d%20%5c%20%0a%20%20%7c%20jq%0a%23%20create%20record%20set%0a%0a'
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
-&lt;/iframe></content></item><item><title>Kubernetes Cheatsheet</title><link>/cheatsheets/kubernetes/</link><pubDate>Sat, 23 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/kubernetes/</guid><description>Kubernetes Useful Resource Templates / Snippets # deployment apiVersion: apps/v1 kind: Deployment metadata: name: nginx-deployment namespace: default labels: app: nginx spec: replicas: 1 selector: matchLabels: app: nginx template: metadata: labels: app: nginx spec: containers: - name: nginx image: nginx:1.21 ports: - containerPort: 80 # statefulset apiVersion: apps/v1 kind: Statefulset metadata: name: nginx-statefulset namespace: default labels: app: nginx spec: serviceName: nginx replicas: 1 selector: matchLabels: app: nginx template: metadata: labels: app: nginx spec: containers: - name: nginx image: nginx:1.</description><content>&lt;h1 id="kubernetes">Kubernetes&lt;/h1>
+&lt;/iframe></content></item><item><title>Kubernetes Cheatsheet</title><link>/cheatsheets/kubernetes/</link><pubDate>Sat, 23 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/kubernetes/</guid><description>Kubernetes Useful Resource Templates / Snippets</description><content>&lt;h1 id="kubernetes">Kubernetes&lt;/h1>
 &lt;h2 id="useful-resource-templates--snippets">Useful Resource Templates / Snippets&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># deployment&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">apps/v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Deployment&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx-deployment&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">namespace&lt;/span>: &lt;span style="color:#ae81ff">default&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">replicas&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">selector&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">matchLabels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">template&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">containers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#ae81ff">nginx:1.21&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ports&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">containerPort&lt;/span>: &lt;span style="color:#ae81ff">80&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># statefulset&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">apps/v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Statefulset&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx-statefulset&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">namespace&lt;/span>: &lt;span style="color:#ae81ff">default&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">serviceName&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">replicas&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">selector&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">matchLabels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">template&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">containers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#ae81ff">nginx:1.21&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ports&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">containerPort&lt;/span>: &lt;span style="color:#ae81ff">80&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">volumeMounts&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">www&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">mountPath&lt;/span>: &lt;span style="color:#ae81ff">/usr/share/nginx/html&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">volumeClaimTemplates&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">www&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">accessModes&lt;/span>: [ &lt;span style="color:#e6db74">&amp;#34;ReadWriteOnce&amp;#34;&lt;/span> ]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">resources&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">requests&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">storage&lt;/span>: &lt;span style="color:#ae81ff">1Gi&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># service&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Service&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">namespace&lt;/span>: &lt;span style="color:#ae81ff">default&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ports&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">port&lt;/span>: &lt;span style="color:#ae81ff">80&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">web&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">selector&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># ingress&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">networking.k8s.io/v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Ingress&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">annotations&lt;/span>: {}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">namespace&lt;/span>: &lt;span style="color:#ae81ff">default&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">rules&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">host&lt;/span>: &lt;span style="color:#ae81ff">www.example.com&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">http&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">paths&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">backend&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">service&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">port&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">number&lt;/span>: &lt;span style="color:#ae81ff">80&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">path&lt;/span>: &lt;span style="color:#ae81ff">/&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">pathType&lt;/span>: &lt;span style="color:#ae81ff">ImplementationSpecific&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># configmap&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">ConfigMap&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">namespace&lt;/span>: &lt;span style="color:#ae81ff">default&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">data&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">key1&lt;/span>: &lt;span style="color:#ae81ff">value1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">nginx.conf&lt;/span>: |&lt;span style="color:#e6db74">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> events {
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> worker_connections 1024;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> }
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> worker_processes auto;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> error_log /dev/stdout notice;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> pid /var/run/nginx.pid;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> http {
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> server {
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> listen 80 default_server;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> server_name _;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> return 301 https://$host$request_uri;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> }
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> }
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> stream {
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> server {
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> listen 443;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> resolver 172.20.0.10;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> proxy_pass 127.0.0.1:443;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> }
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> }
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># secret&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Secret&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">nginx&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">namespace&lt;/span>: &lt;span style="color:#ae81ff">default&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">type&lt;/span>: &lt;span style="color:#ae81ff">Opaque&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">data&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">username&lt;/span>: &lt;span style="color:#ae81ff">YWRtaW4=&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#ae81ff">MWYyZDFlMmU2N2Rm&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># role&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># rolebinding&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># clusterrole&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># clusterrolebinding&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># livenessProbe and readinessProbe with http protocol&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">containers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">app&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">livenessProbe&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">httpGet&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">path&lt;/span>: &lt;span style="color:#ae81ff">/healthz&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">port&lt;/span>: &lt;span style="color:#ae81ff">8080&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">httpHeaders&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Custom-Header&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">value&lt;/span>: &lt;span style="color:#ae81ff">Awesome&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">initialDelaySeconds&lt;/span>: &lt;span style="color:#ae81ff">3&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">periodSeconds&lt;/span>: &lt;span style="color:#ae81ff">3&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">readinessProbe&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">httpGet&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">path&lt;/span>: &lt;span style="color:#ae81ff">/healthz&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">port&lt;/span>: &lt;span style="color:#ae81ff">8080&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">httpHeaders&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Custom-Header&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">value&lt;/span>: &lt;span style="color:#ae81ff">Awesome&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">initialDelaySeconds&lt;/span>: &lt;span style="color:#ae81ff">3&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">periodSeconds&lt;/span>: &lt;span style="color:#ae81ff">3&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># livenessProbe and readinessProbe with TCP protocol&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">containers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">app&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">readinessProbe&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">tcpSocket&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">port&lt;/span>: &lt;span style="color:#ae81ff">8080&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">initialDelaySeconds&lt;/span>: &lt;span style="color:#ae81ff">5&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">periodSeconds&lt;/span>: &lt;span style="color:#ae81ff">10&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">livenessProbe&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">tcpSocket&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">port&lt;/span>: &lt;span style="color:#ae81ff">8080&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">initialDelaySeconds&lt;/span>: &lt;span style="color:#ae81ff">15&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">periodSeconds&lt;/span>: &lt;span style="color:#ae81ff">20&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># mount a configmap&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># env from&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></content></item><item><title>Docker Cheatsheet</title><link>/cheatsheets/docker/</link><pubDate>Wed, 13 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/docker/</guid><description/><content/></item><item><title>Elasticsearch Cheatsheet</title><link>/cheatsheets/elasticsearch/</link><pubDate>Mon, 23 Nov 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/elasticsearch/</guid><description/><content/></item><item><title>Ansible Cheatsheet</title><link>/cheatsheets/ansible/</link><pubDate>Fri, 13 Nov 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/ansible/</guid><description/><content/></item><item><title>Vim Cheatsheet</title><link>/cheatsheets/vim/</link><pubDate>Tue, 12 May 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/vim/</guid><description/><content/></item><item><title>OpenSSL Cheatsheet</title><link>/cheatsheets/openssl/</link><pubDate>Fri, 13 Mar 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/openssl/</guid><description/><content>&lt;iframe
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20deployment%0aapiVersion%3a%20apps%2fv1%0akind%3a%20Deployment%0ametadata%3a%0a%20%20name%3a%20nginx-deployment%0a%20%20namespace%3a%20default%0a%20%20labels%3a%0a%20%20%20%20app%3a%20nginx%0aspec%3a%0a%20%20replicas%3a%201%0a%20%20selector%3a%0a%20%20%20%20matchLabels%3a%0a%20%20%20%20%20%20app%3a%20nginx%0a%20%20template%3a%0a%20%20%20%20metadata%3a%0a%20%20%20%20%20%20labels%3a%0a%20%20%20%20%20%20%20%20app%3a%20nginx%0a%20%20%20%20spec%3a%0a%20%20%20%20%20%20containers%3a%0a%20%20%20%20%20%20-%20name%3a%20nginx%0a%20%20%20%20%20%20%20%20image%3a%20nginx%3a1.21%0a%20%20%20%20%20%20%20%20ports%3a%0a%20%20%20%20%20%20%20%20-%20containerPort%3a%2080%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20statefulset%0aapiVersion%3a%20apps%2fv1%0akind%3a%20Statefulset%0ametadata%3a%0a%20%20name%3a%20nginx-statefulset%0a%20%20namespace%3a%20default%0a%20%20labels%3a%0a%20%20%20%20app%3a%20nginx%0aspec%3a%0a%20%20serviceName%3a%20nginx%0a%20%20replicas%3a%201%0a%20%20selector%3a%0a%20%20%20%20matchLabels%3a%0a%20%20%20%20%20%20app%3a%20nginx%0a%20%20template%3a%0a%20%20%20%20metadata%3a%0a%20%20%20%20%20%20labels%3a%0a%20%20%20%20%20%20%20%20app%3a%20nginx%0a%20%20%20%20spec%3a%0a%20%20%20%20%20%20containers%3a%0a%20%20%20%20%20%20-%20name%3a%20nginx%0a%20%20%20%20%20%20%20%20image%3a%20nginx%3a1.21%0a%20%20%20%20%20%20%20%20ports%3a%0a%20%20%20%20%20%20%20%20-%20containerPort%3a%2080%0a%20%20%20%20%20%20%20%20volumeMounts%3a%0a%20%20%20%20%20%20%20%20-%20name%3a%20www%0a%20%20%20%20%20%20%20%20%20%20mountPath%3a%20%2fusr%2fshare%2fnginx%2fhtml%0a%20%20volumeClaimTemplates%3a%0a%20%20-%20metadata%3a%0a%20%20%20%20%20%20name%3a%20www%0a%20%20%20%20spec%3a%0a%20%20%20%20%20%20accessModes%3a%20%5b%20%22ReadWriteOnce%22%20%5d%0a%20%20%20%20%20%20resources%3a%0a%20%20%20%20%20%20%20%20requests%3a%0a%20%20%20%20%20%20%20%20%20%20storage%3a%201Gi%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20service%0aapiVersion%3a%20v1%0akind%3a%20Service%0ametadata%3a%0a%20%20name%3a%20nginx%0a%20%20namespace%3a%20default%0a%20%20labels%3a%0a%20%20%20%20app%3a%20nginx%0aspec%3a%0a%20%20ports%3a%0a%20%20-%20port%3a%2080%0a%20%20%20%20name%3a%20web%0a%20%20selector%3a%0a%20%20%20%20app%3a%20nginx%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20ingress%0aapiVersion%3a%20networking.k8s.io%2fv1%0akind%3a%20Ingress%0ametadata%3a%0a%20%20annotations%3a%20%7b%7d%0a%20%20name%3a%20nginx%0a%20%20namespace%3a%20default%0a%20%20labels%3a%0a%20%20%20%20app%3a%20nginx%0aspec%3a%0a%20%20rules%3a%0a%20%20-%20host%3a%20www.example.com%0a%20%20%20%20http%3a%0a%20%20%20%20%20%20paths%3a%0a%20%20%20%20%20%20-%20backend%3a%0a%20%20%20%20%20%20%20%20%20%20service%3a%0a%20%20%20%20%20%20%20%20%20%20%20%20name%3a%20nginx%0a%20%20%20%20%20%20%20%20%20%20%20%20port%3a%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20number%3a%2080%0a%20%20%20%20%20%20%20%20path%3a%20%2f%0a%20%20%20%20%20%20%20%20pathType%3a%20ImplementationSpecific%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20configmap%0aapiVersion%3a%20v1%0akind%3a%20ConfigMap%0ametadata%3a%0a%20%20name%3a%20nginx%0a%20%20namespace%3a%20default%0adata%3a%0a%20%20key1%3a%20value1%0a%20%20nginx.conf%3a%20%7c%0a%20%20%20%20events%20%7b%0a%20%20%20%20%20%20worker_connections%20%201024%3b%0a%20%20%20%20%7d%0a%20%20%20%20worker_processes%20auto%3b%0a%20%20%20%20error_log%20%2fdev%2fstdout%20notice%3b%0a%20%20%20%20pid%20%2fvar%2frun%2fnginx.pid%3b%0a%20%20%20%20http%20%7b%0a%20%20%20%20%20%20server%20%7b%0a%20%20%20%20%20%20%20%20listen%2080%20default_server%3b%0a%20%20%20%20%20%20%20%20server_name%20_%3b%0a%20%20%20%20%20%20%20%20return%20301%20https%3a%2f%2f%24host%24request_uri%3b%0a%20%20%20%20%20%20%7d%0a%20%20%20%20%7d%0a%20%20%20%20stream%20%7b%0a%20%20%20%20%20%20server%20%7b%0a%20%20%20%20%20%20%20%20listen%20443%3b%0a%20%20%20%20%20%20%20%20resolver%20172.20.0.10%3b%0a%20%20%20%20%20%20%20%20proxy_pass%20127.0.0.1%3a443%3b%0a%20%20%20%20%20%20%7d%0a%20%20%20%20%7d%0a%20%20%20%20%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20secret%0aapiVersion%3a%20v1%0akind%3a%20Secret%0ametadata%3a%0a%20%20name%3a%20nginx%0a%20%20namespace%3a%20default%0atype%3a%20Opaque%0adata%3a%0a%20%20username%3a%20YWRtaW4%3d%0a%20%20password%3a%20MWYyZDFlMmU2N2Rm%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20role%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20rolebinding%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20clusterrole%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20clusterrolebinding%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20livenessProbe%20and%20readinessProbe%20with%20http%20protocol%0aspec%3a%0a%20%20containers%3a%0a%20%20-%20name%3a%20app%0a%20%20%20%20livenessProbe%3a%0a%20%20%20%20%20%20httpGet%3a%0a%20%20%20%20%20%20%20%20path%3a%20%2fhealthz%0a%20%20%20%20%20%20%20%20port%3a%208080%0a%20%20%20%20%20%20%20%20httpHeaders%3a%0a%20%20%20%20%20%20%20%20-%20name%3a%20Custom-Header%0a%20%20%20%20%20%20%20%20%20%20value%3a%20Awesome%0a%20%20%20%20%20%20initialDelaySeconds%3a%203%0a%20%20%20%20%20%20periodSeconds%3a%203%0a%20%20%20%20readinessProbe%3a%0a%20%20%20%20%20%20httpGet%3a%0a%20%20%20%20%20%20%20%20path%3a%20%2fhealthz%0a%20%20%20%20%20%20%20%20port%3a%208080%0a%20%20%20%20%20%20%20%20httpHeaders%3a%0a%20%20%20%20%20%20%20%20-%20name%3a%20Custom-Header%0a%20%20%20%20%20%20%20%20%20%20value%3a%20Awesome%0a%20%20%20%20%20%20initialDelaySeconds%3a%203%0a%20%20%20%20%20%20periodSeconds%3a%203%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20livenessProbe%20and%20readinessProbe%20with%20TCP%20protocol%0aspec%3a%0a%20%20containers%3a%0a%20%20-%20name%3a%20app%0a%20%20%20%20readinessProbe%3a%0a%20%20%20%20%20%20tcpSocket%3a%0a%20%20%20%20%20%20%20%20port%3a%208080%0a%20%20%20%20%20%20initialDelaySeconds%3a%205%0a%20%20%20%20%20%20periodSeconds%3a%2010%0a%20%20%20%20livenessProbe%3a%0a%20%20%20%20%20%20tcpSocket%3a%0a%20%20%20%20%20%20%20%20port%3a%208080%0a%20%20%20%20%20%20initialDelaySeconds%3a%2015%0a%20%20%20%20%20%20periodSeconds%3a%2020%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20mount%20a%20configmap%0aapiVersion%3a%20v1%0akind%3a%20Pod%0ametadata%3a%0a%20%20name%3a%20nginx%0a%20%20namespace%3a%20default%0aspec%3a%0a%20%20containers%3a%0a%20%20%20%20-%20name%3a%20nginx%0a%20%20%20%20%20%20image%3a%20nginx%3alatest%0a%20%20%20%20%20%20volumeMounts%3a%0a%20%20%20%20%20%20-%20name%3a%20config-volume%0a%20%20%20%20%20%20%20%20mountPath%3a%20%2fetc%2fnginx%0a%20%20%20%20%20%20%20%20subPath%3a%0a%20%20volumes%3a%0a%20%20%20%20-%20name%3a%20config-volume%0a%20%20%20%20%20%20configMap%3a%0a%20%20%20%20%20%20%20%20name%3a%20nginx%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20env%20from%20configmap%20or%20secret%0aapiVersion%3a%20v1%0akind%3a%20Pod%0ametadata%3a%0a%20%20name%3a%20nginx%0a%20%20namespace%3a%20default%0aspec%3a%0a%20%20containers%3a%0a%20%20%20%20-%20name%3a%20nginx%0a%20%20%20%20%20%20image%3a%20nginx%3alatest%0a%20%20%20%20%20%20env%3a%0a%20%20%20%20%20%20-%20name%3a%20SECRET_USERNAME%0a%20%20%20%20%20%20%20%20valueFrom%3a%0a%20%20%20%20%20%20%20%20%20%20configMapKeyRef%3a%0a%20%20%20%20%20%20%20%20%20%20%20%20name%3a%20nginx%0a%20%20%20%20%20%20%20%20%20%20%20%20key%3a%20username%0a%20%20%20%20%20%20%20%20%20%20%20%20optional%3a%20false%0a%20%20%20%20%20%20-%20name%3a%20SECRET_PASSWORD%0a%20%20%20%20%20%20%20%20valueFrom%3a%0a%20%20%20%20%20%20%20%20%20%20secretKeyRef%3a%0a%20%20%20%20%20%20%20%20%20%20%20%20name%3a%20nginx%0a%20%20%20%20%20%20%20%20%20%20%20%20key%3a%20password%0a%20%20%20%20%20%20%20%20%20%20%20%20optional%3a%20false%0a%20%20%20%20%20%20envFrom%3a%0a%20%20%20%20%20%20-%20configMapRef%3a%0a%20%20%20%20%20%20%20%20%20%20name%3a%20nginx%0a%20%20%20%20%20%20-%20secretRef%3a%0a%20%20%20%20%20%20%20%20%20%20name%3a%20nginx%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe></content></item><item><title>Docker Cheatsheet</title><link>/cheatsheets/docker/</link><pubDate>Wed, 13 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/docker/</guid><description/><content/></item><item><title>Elasticsearch Cheatsheet</title><link>/cheatsheets/elasticsearch/</link><pubDate>Mon, 23 Nov 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/elasticsearch/</guid><description/><content/></item><item><title>Ansible Cheatsheet</title><link>/cheatsheets/ansible/</link><pubDate>Fri, 13 Nov 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/ansible/</guid><description/><content/></item><item><title>Vim Cheatsheet</title><link>/cheatsheets/vim/</link><pubDate>Tue, 12 May 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/vim/</guid><description/><content/></item><item><title>OpenSSL Cheatsheet</title><link>/cheatsheets/openssl/</link><pubDate>Fri, 13 Mar 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/openssl/</guid><description/><content>&lt;iframe
 src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20check%20https%20server%20certificate%20%0aopenssl%20s_client%20-showcerts%20-servername%20www.example.com%20-connect%20httpbin.org%3a443%20%3c%2fdev%2fnull%0a'
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
