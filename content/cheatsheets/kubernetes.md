@@ -20,7 +20,7 @@ readingTime: false
 
 ## Useful Resource Templates / Snippets
 
-{{< carbon lang="yaml" >}}
+{{< carbon lang="yaml" width="500px" >}}
 # deployment
 apiVersion: apps/v1
 kind: Deployment
@@ -43,7 +43,7 @@ spec:
       - name: nginx
         image: nginx:1.21
         ports:
-        - containerPort: 80
+        - containerPort: 80                                                                      
 {{< /carbon >}}
 
 
@@ -82,7 +82,7 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 1Gi
+          storage: 1Gi                                                                                
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
@@ -99,7 +99,7 @@ spec:
   - port: 80
     name: web
   selector:
-    app: nginx
+    app: nginx                                                                                          
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
@@ -123,7 +123,7 @@ spec:
             port:
               number: 80
         path: /
-        pathType: ImplementationSpecific
+        pathType: ImplementationSpecific                                                  
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
@@ -155,8 +155,7 @@ data:
         resolver 172.20.0.10;
         proxy_pass 127.0.0.1:443;
       }
-    }
-    
+    }                                                                                          
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
@@ -169,23 +168,23 @@ metadata:
 type: Opaque
 data:
   username: YWRtaW4=
-  password: MWYyZDFlMmU2N2Rm
+  password: MWYyZDFlMmU2N2Rm                                                                      
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
-# role
+# role                                                                                
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
-# rolebinding
+# rolebinding                                                                                
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
-# clusterrole
+# clusterrole                                                                                
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
-# clusterrolebinding
+# clusterrolebinding                                                                      
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
@@ -210,7 +209,7 @@ spec:
         - name: Custom-Header
           value: Awesome
       initialDelaySeconds: 3
-      periodSeconds: 3
+      periodSeconds: 3                                                                      
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
@@ -227,7 +226,7 @@ spec:
       tcpSocket:
         port: 8080
       initialDelaySeconds: 15
-      periodSeconds: 20
+      periodSeconds: 20                                                                      
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
@@ -248,7 +247,7 @@ spec:
   volumes:
     - name: config-volume
       configMap:
-        name: nginx
+        name: nginx                                                                      
 {{< /carbon >}}
 
 {{< carbon lang="yaml" >}}
@@ -279,5 +278,5 @@ spec:
       - configMapRef:
           name: nginx
       - secretRef:
-          name: nginx
+          name: nginx                                                                      
 {{< /carbon >}}
