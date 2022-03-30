@@ -82,6 +82,12 @@ kubectl rollout history deployment/nginx
 kubectl rollout history statefulset/nginx
 ```
 
+```bash
+# get first pod log 
+kubectl logs `kubectl get po -o name | grep keyword | head -1`
+kubectl exec -it `kubectl get po -o name | grep keyword | head -1` -- bash
+```
+
 ### Others
 
 ```bash
@@ -154,6 +160,13 @@ kubectl run debugger --rm -i --tty --image nicolaka/netshoot:latest -- bash
 # disable healthcheck if you want to troubleshoot healthcheck failure
 # --type json, use json patch(RFC 6902), check official docs
 kubectl patch deployment nginx --type json -p='[{"op": "remove", "path": "/spec/template/spec/containers/0/livenessProbe"}]'
+```
+
+```bash
+# increase initialDelaySeconds to 3600
+kubectl patch deploy nginx --type json \
+  -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/livenessProbe/initialDelaySeconds", "value": 3600}]
+      {"op": "replace", "path": "/spec/template/spec/containers/0/readinessProbe/initialDelaySeconds", "value": 3600}]'
 ```
 
 ```bash
