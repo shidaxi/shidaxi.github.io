@@ -11,5 +11,8 @@
 * [Carbon](https://carbon.shuai.dev): A code to beautiful image tool
 * [Ray.so](https://ray.so): A code to beautiful image tool
 * [Regex101](https://regex101.com/): Regular expresssion tester
-* [Font Awesome](https://fontawesome.com): 
-* [SuperTinyIcons](https://github.com/edent/SuperTinyIcons): 
+* [Font Awesome](https://fontawesome.com): icons
+* [SuperTinyIcons](https://github.com/edent/SuperTinyIcons): icons
+* [excalidraw](https://excalidraw.com): Draw diagram online
+* [drawio](/drawio/src/main/webapp/): Draw IO diagramming online
+* [My Mind](/my-mind): Simple mind map
