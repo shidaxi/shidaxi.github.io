@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>devops on Tech Memory</title><link>/tags/devops/</link><description>Recent content in devops on Tech Memory</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 13 Nov 2021 00:00:00 +0800</lastBuildDate><atom:link href="/tags/devops/index.xml" rel="self" type="application/rss+xml"/><item><title>DevOps Interview Questions</title><link>/cheatsheets/devops-interview-question/</link><pubDate>Sat, 13 Nov 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/devops-interview-question/</guid><description>kubernetes 如何保证滚动更新过程中 0当机，从k8s, 容器，应用本身 如何保证终止信号能正确传递给容器内的应用进程 resource limit存在的意义是什么，cpu 内存用超了分别会发生什么；查看node已经分配了多少资源，查看实际使用率 自动扩容 pod，处于pending状态/一直重启 如何排查问题 RBAC cloud iam IAM role, assume role 授权机制, policy举例 CDN cdn的缓存策略如何设置的 Iac terraform state文件的作用是什么 如何减少重复的代码，如何编写一个module 如何导入一个已存在的资源 如果runtime的资源被人为修改了或者删除了，跑terraform会发生什么，怎么处理 monitoring grafana dashboard 有许多复杂的查询语句，怎么优化提高速度，recording rule 作用 一个counter类型指标，怎么查看它的波动情况 是否关注过p99延迟，p99是什么意思，如何获取指标的p99 指标 label是主机名，怎么查询看主机名包含 某个关键词的指标 logging elasticsearch 优化 cicd 构建 部署，如何从技术上提高构建效率和部署效率 蓝绿，金丝雀 区别与实现方式 Java 接触过的jvm参数及含义 内存模型 jdk8/jdk11, java/springboot 如何监控，关注的监控指标有哪些 排错 遇到过哪些java层面问题，如何排查的 java服务响应慢，从jvm层面怎么排查 有哪些排错手段 编程 用python写过哪些 工作方法 从部门协作的角度，devops如何提高我们的支持效率？ 时间主要花费在哪里？ 如何减少不必要的时间开销？ 未涉及 还有哪些地方比较擅长，但是没有问到的</description><content>&lt;h2 id="kubernetes">kubernetes&lt;/h2>
+&lt;ul>
+&lt;li>如何保证滚动更新过程中 0当机，从k8s, 容器，应用本身
+&lt;ul>
+&lt;li>如何保证终止信号能正确传递给容器内的应用进程&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;li>resource limit存在的意义是什么，cpu 内存用超了分别会发生什么；查看node已经分配了多少资源，查看实际使用率&lt;/li>
+&lt;li>自动扩容&lt;/li>
+&lt;li>pod，处于pending状态/一直重启 如何排查问题&lt;/li>
+&lt;li>RBAC&lt;/li>
+&lt;/ul>
+&lt;h2 id="cloud">cloud&lt;/h2>
+&lt;h3 id="iam">iam&lt;/h3>
+&lt;ul>
+&lt;li>IAM role, assume role 授权机制, policy举例&lt;/li>
+&lt;/ul>
+&lt;h3 id="cdn">CDN&lt;/h3>
+&lt;ul>
+&lt;li>cdn的缓存策略如何设置的&lt;/li>
+&lt;/ul>
+&lt;h2 id="iac">Iac&lt;/h2>
+&lt;ul>
+&lt;li>terraform state文件的作用是什么&lt;/li>
+&lt;li>如何减少重复的代码，如何编写一个module&lt;/li>
+&lt;li>如何导入一个已存在的资源&lt;/li>
+&lt;li>如果runtime的资源被人为修改了或者删除了，跑terraform会发生什么，怎么处理&lt;/li>
+&lt;/ul>
+&lt;h2 id="monitoring">monitoring&lt;/h2>
+&lt;ul>
+&lt;li>grafana dashboard 有许多复杂的查询语句，怎么优化提高速度，recording rule 作用&lt;/li>
+&lt;li>一个counter类型指标，怎么查看它的波动情况&lt;/li>
+&lt;li>是否关注过p99延迟，p99是什么意思，如何获取指标的p99&lt;/li>
+&lt;li>指标 label是主机名，怎么查询看主机名包含 某个关键词的指标&lt;/li>
+&lt;/ul>
+&lt;h2 id="logging">logging&lt;/h2>
+&lt;ul>
+&lt;li>elasticsearch 优化&lt;/li>
+&lt;/ul>
+&lt;h2 id="cicd">cicd&lt;/h2>
+&lt;ul>
+&lt;li>构建 部署，如何从技术上提高构建效率和部署效率&lt;/li>
+&lt;li>蓝绿，金丝雀 区别与实现方式&lt;/li>
+&lt;/ul>
+&lt;h2 id="java">Java&lt;/h2>
+&lt;ul>
+&lt;li>接触过的jvm参数及含义&lt;/li>
+&lt;li>内存模型 jdk8/jdk11,&lt;/li>
+&lt;li>java/springboot 如何监控，关注的监控指标有哪些&lt;/li>
+&lt;li>排错
+&lt;ul>
+&lt;li>遇到过哪些java层面问题，如何排查的&lt;/li>
+&lt;li>java服务响应慢，从jvm层面怎么排查&lt;/li>
+&lt;li>有哪些排错手段&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="编程">编程&lt;/h2>
+&lt;ul>
+&lt;li>用python写过哪些&lt;/li>
+&lt;/ul>
+&lt;h2 id="工作方法">工作方法&lt;/h2>
+&lt;ul>
+&lt;li>从部门协作的角度，devops如何提高我们的支持效率？
+&lt;ul>
+&lt;li>时间主要花费在哪里？ 如何减少不必要的时间开销？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="未涉及">未涉及&lt;/h2>
+&lt;ul>
+&lt;li>还有哪些地方比较擅长，但是没有问到的&lt;/li>
+&lt;/ul></content></item></channel></rss>
