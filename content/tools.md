@@ -16,3 +16,5 @@
 * [excalidraw](https://excalidraw.com): Draw diagram online
 * [drawio](/drawio/src/main/webapp/): Draw IO diagramming online
 * [My Mind](/my-mind): Simple mind map
+* [Hoppscotch](https://hop.shuai.dev/): hoppscotch, a light-weight, web based API development suite
+* [Kubernetes Network Policy Viewer](https://orca.tufin.io/netpol/): 

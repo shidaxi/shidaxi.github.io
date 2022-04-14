@@ -174,7 +174,7 @@ aws cloudfront create-invalidation --distribution-id E3NXXXXXXXXXXX --paths "/*"
 for c in $(aws acm list-certificates \
           --query 'CertificateSummaryList[].CertificateArn' --output text)
 do aws acm describe-certificate --certificate-arn $c \
-    --query 'Certificate.{CertificateArn:CertificateArn,DomainName:DomainName,SubjectAlternativeNames:SubjectAlternativeNames,Status:Status,NotAfter:NotAfter}' | jq
+    --query 'Certificate.{CertificateArn:CertificateArn, DomainName:DomainName,SubjectAlternativeNames:SubjectAlternativeNames, Status:Status,NotAfter:NotAfter}' | jq
 done
 {{< /carbon >}}
 

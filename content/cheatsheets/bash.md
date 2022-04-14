@@ -14,3 +14,8 @@ description: ""
 showFullContent: false
 readingTime: false
 ---
+
+{{< carbon lang="shell" >}}
+# colorful output
+source <(curl -s //shuai.dev/bash_colors/bash_colors.sh)
+{{< /carbon >}}

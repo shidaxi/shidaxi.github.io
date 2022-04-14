@@ -45,10 +45,10 @@ stream {
 ## force https redirection
 
 {{< carbon lang="nginx" >}}
-  server {
-    listen 80 default_server;
-    server_name _;
-    access_log off;
-    return 301 https://$host$request_uri;
-  }
+server {
+  listen 80 default_server;
+  server_name _;
+  access_log off;
+  return 301 https://$host$request_uri;
+}
 {{< /carbon >}}

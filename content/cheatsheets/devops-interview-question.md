@@ -18,14 +18,13 @@ readingTime: false
 ## kubernetes
 * 如何保证滚动更新过程中 0当机，从k8s, 容器，应用本身
   * 如何保证终止信号能正确传递给容器内的应用进程
-*
 * resource limit存在的意义是什么，cpu 内存用超了分别会发生什么；查看node已经分配了多少资源，查看实际使用率
 * 自动扩容
 * pod，处于pending状态/一直重启 如何排查问题
 * RBAC
 
 ## cloud
-
+阿里云
 ### iam
 * IAM role, assume role 授权机制, policy举例
 
@@ -45,11 +44,17 @@ readingTime: false
 * 指标 label是主机名，怎么查询看主机名包含 某个关键词的指标
 
 ## logging
-* elasticsearch 优化
+* elasticsearch JVM 层面优化
+* es node 数量，replica 数量，分片数量 如何设置, 有何考量
 
 ## cicd
 * 构建 部署，如何从技术上提高构建效率和部署效率
 * 蓝绿，金丝雀 区别与实现方式
+
+## TCP/IP
+tcp 三次握手，四次挥手，包头内容的变化，状态机变化， TIMEWAIT CLOSING_WAIT
+nginx 网络层面 优化, 慢请求
+tcpdump分析过的问题，及分析过程
 
 ## Java
 * 接触过的jvm参数及含义
@@ -61,7 +66,7 @@ readingTime: false
   * 有哪些排错手段
 
 ## 编程
-* 用python写过哪些
+* 用python django 写过什么项目，有什么功能，如何实现的
 
 ## 工作方法
 * 从部门协作的角度，devops如何提高我们的支持效率？
