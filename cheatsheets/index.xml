@@ -4,20 +4,21 @@ src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
-&lt;/iframe></content></item><item><title>DevOps Interview Questions</title><link>/cheatsheets/devops-interview-question/</link><pubDate>Sat, 13 Nov 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/devops-interview-question/</guid><description>kubernetes 如何保证滚动更新过程中 0当机，从k8s, 容器，应用本身 如何保证终止信号能正确传递给容器内的应用进程 resource limit存在的意义是什么，cpu 内存用超了分别会发生什么；查看node已经分配了多少资源，查看实际使用率 自动扩容 pod，处于pending状态/一直重启 如何排查问题 RBAC cloud iam IAM role, assume role 授权机制, policy举例 CDN cdn的缓存策略如何设置的 Iac terraform state文件的作用是什么 如何减少重复的代码，如何编写一个module 如何导入一个已存在的资源 如果runtime的资源被人为修改了或者删除了，跑terraform会发生什么，怎么处理 monitoring grafana dashboard 有许多复杂的查询语句，怎么优化提高速度，recording rule 作用 一个counter类型指标，怎么查看它的波动情况 是否关注过p99延迟，p99是什么意思，如何获取指标的p99 指标 label是主机名，怎么查询看主机名包含 某个关键词的指标 logging elasticsearch 优化 cicd 构建 部署，如何从技术上提高构建效率和部署效率 蓝绿，金丝雀 区别与实现方式 Java 接触过的jvm参数及含义 内存模型 jdk8/jdk11, java/springboot 如何监控，关注的监控指标有哪些 排错 遇到过哪些java层面问题，如何排查的 java服务响应慢，从jvm层面怎么排查 有哪些排错手段 编程 用python写过哪些 工作方法 从部门协作的角度，devops如何提高我们的支持效率？ 时间主要花费在哪里？ 如何减少不必要的时间开销？ 未涉及 还有哪些地方比较擅长，但是没有问到的</description><content>&lt;h2 id="kubernetes">kubernetes&lt;/h2>
+&lt;/iframe></content></item><item><title>DevOps Interview Questions</title><link>/cheatsheets/devops-interview-question/</link><pubDate>Sat, 13 Nov 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/devops-interview-question/</guid><description>kubernetes 如何保证滚动更新过程中 0当机，从k8s, 容器，应用本身 如何保证终止信号能正确传递给容器内的应用进程 resource limit存在的意义是什么，cpu 内存用超了分别会发生什么；查看node已经分配了多少资源，查看实际使用率 自动扩容 pod，处于pending状态/一直重启 如何排查问题 RBAC cloud 阿里云
+iam IAM role, assume role 授权机制, policy举例 CDN cdn的缓存策略如何设置的 Iac terraform state文件的作用是什么 如何减少重复的代码，如何编写一个module 如何导入一个已存在的资源 如果runtime的资源被人为修改了或者删除了，跑terraform会发生什么，怎么处理 monitoring grafana dashboard 有许多复杂的查询语句，怎么优化提高速度，recording rule 作用 一个counter类型指标，怎么查看它的波动情况 是否关注过p99延迟，p99是什么意思，如何获取指标的p99 指标 label是主机名，怎么查询看主机名包含 某个关键词的指标 logging elasticsearch JVM 层面优化 es node 数量，replica 数量，分片数量 如何设置, 有何考量 cicd 构建 部署，如何从技术上提高构建效率和部署效率 蓝绿，金丝雀 区别与实现方式 TCP/IP tcp 三次握手，四次挥手，包头内容的变化，状态机变化， TIMEWAIT CLOSING_WAIT nginx 网络层面 优化, 慢请求 tcpdump分析过的问题，及分析过程</description><content>&lt;h2 id="kubernetes">kubernetes&lt;/h2>
 &lt;ul>
 &lt;li>如何保证滚动更新过程中 0当机，从k8s, 容器，应用本身
 &lt;ul>
 &lt;li>如何保证终止信号能正确传递给容器内的应用进程&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>&lt;/li>
 &lt;li>resource limit存在的意义是什么，cpu 内存用超了分别会发生什么；查看node已经分配了多少资源，查看实际使用率&lt;/li>
 &lt;li>自动扩容&lt;/li>
 &lt;li>pod，处于pending状态/一直重启 如何排查问题&lt;/li>
 &lt;li>RBAC&lt;/li>
 &lt;/ul>
 &lt;h2 id="cloud">cloud&lt;/h2>
+&lt;p>阿里云&lt;/p>
 &lt;h3 id="iam">iam&lt;/h3>
 &lt;ul>
 &lt;li>IAM role, assume role 授权机制, policy举例&lt;/li>
@@ -42,13 +43,18 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/ul>
 &lt;h2 id="logging">logging&lt;/h2>
 &lt;ul>
-&lt;li>elasticsearch 优化&lt;/li>
+&lt;li>elasticsearch JVM 层面优化&lt;/li>
+&lt;li>es node 数量，replica 数量，分片数量 如何设置, 有何考量&lt;/li>
 &lt;/ul>
 &lt;h2 id="cicd">cicd&lt;/h2>
 &lt;ul>
 &lt;li>构建 部署，如何从技术上提高构建效率和部署效率&lt;/li>
 &lt;li>蓝绿，金丝雀 区别与实现方式&lt;/li>
 &lt;/ul>
+&lt;h2 id="tcpip">TCP/IP&lt;/h2>
+&lt;p>tcp 三次握手，四次挥手，包头内容的变化，状态机变化， TIMEWAIT CLOSING_WAIT
+nginx 网络层面 优化, 慢请求
+tcpdump分析过的问题，及分析过程&lt;/p>
 &lt;h2 id="java">Java&lt;/h2>
 &lt;ul>
 &lt;li>接触过的jvm参数及含义&lt;/li>
@@ -64,7 +70,7 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/ul>
 &lt;h2 id="编程">编程&lt;/h2>
 &lt;ul>
-&lt;li>用python写过哪些&lt;/li>
+&lt;li>用python django 写过什么项目，有什么功能，如何实现的&lt;/li>
 &lt;/ul>
 &lt;h2 id="工作方法">工作方法&lt;/h2>
 &lt;ul>
@@ -269,7 +275,7 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/iframe>
 &lt;h2 id="force-https-redirection">force https redirection&lt;/h2>
 &lt;iframe
-src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=nginx&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%20%20server%20%7b%0a%20%20%20%20listen%2080%20default_server%3b%0a%20%20%20%20server_name%20_%3b%0a%20%20%20%20access_log%20off%3b%0a%20%20%20%20return%20301%20https%3a%2f%2f%24host%24request_uri%3b%0a%20%20%7d%0a'
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=nginx&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0aserver%20%7b%0a%20%20listen%2080%20default_server%3b%0a%20%20server_name%20_%3b%0a%20%20access_log%20off%3b%0a%20%20return%20301%20https%3a%2f%2f%24host%24request_uri%3b%0a%7d%0a'
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
@@ -384,7 +390,7 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/iframe>
 &lt;h2 id="acm">acm&lt;/h2>
 &lt;iframe
-src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20describe%20certificates%0afor%20c%20in%20%24%28aws%20acm%20list-certificates%20%5c%0a%20%20%20%20%20%20%20%20%20%20--query%20%27CertificateSummaryList%5b%5d.CertificateArn%27%20--output%20text%29%0ado%20aws%20acm%20describe-certificate%20--certificate-arn%20%24c%20%5c%0a%20%20%20%20--query%20%27Certificate.%7bCertificateArn%3aCertificateArn%2cDomainName%3aDomainName%2cSubjectAlternativeNames%3aSubjectAlternativeNames%2cStatus%3aStatus%2cNotAfter%3aNotAfter%7d%27%20%7c%20jq%0adone%0a'
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20describe%20certificates%0afor%20c%20in%20%24%28aws%20acm%20list-certificates%20%5c%0a%20%20%20%20%20%20%20%20%20%20--query%20%27CertificateSummaryList%5b%5d.CertificateArn%27%20--output%20text%29%0ado%20aws%20acm%20describe-certificate%20--certificate-arn%20%24c%20%5c%0a%20%20%20%20--query%20%27Certificate.%7bCertificateArn%3aCertificateArn%2c%20DomainName%3aDomainName%2cSubjectAlternativeNames%3aSubjectAlternativeNames%2c%20Status%3aStatus%2cNotAfter%3aNotAfter%7d%27%20%7c%20jq%0adone%0a'
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
@@ -485,4 +491,9 @@ src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
-&lt;/iframe></content></item><item><title>Bash Cheatsheet</title><link>/cheatsheets/bash/</link><pubDate>Mon, 13 Jan 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/bash/</guid><description/><content/></item><item><title/><link>/cheatsheets/mongo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/mongo/</guid><description/><content/></item><item><title/><link>/cheatsheets/postgresql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/postgresql/</guid><description/><content/></item></channel></rss>
+&lt;/iframe></content></item><item><title>Bash Cheatsheet</title><link>/cheatsheets/bash/</link><pubDate>Mon, 13 Jan 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/bash/</guid><description/><content>&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20colorful%20output%0asource%20%3c%28curl%20-s%20%2f%2fshuai.dev%2fbash_colors%2fbash_colors.sh%29%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe></content></item><item><title/><link>/cheatsheets/mongo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/mongo/</guid><description/><content/></item><item><title/><link>/cheatsheets/postgresql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/postgresql/</guid><description/><content/></item></channel></rss>
