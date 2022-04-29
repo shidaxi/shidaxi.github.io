@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tech Memory</title><link>/</link><description>Recent content on Tech Memory</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 23 Mar 2022 21:31:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>My First Post</title><link>/posts/my-first-post/</link><pubDate>Wed, 23 Mar 2022 21:31:44 +0800</pubDate><guid>/posts/my-first-post/</guid><description/><content/></item><item><title>Terraform Cheatsheet</title><link>/cheatsheets/terraform/</link><pubDate>Sat, 12 Mar 2022 00:00:00 +0800</pubDate><guid>/cheatsheets/terraform/</guid><description>Useful Snippets</description><content>&lt;h1 id="useful-snippets">Useful Snippets&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tech Memory</title><link>/</link><description>Recent content on Tech Memory</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 12 Mar 2022 00:00:00 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Terraform Cheatsheet</title><link>/cheatsheets/terraform/</link><pubDate>Sat, 12 Mar 2022 00:00:00 +0800</pubDate><guid>/cheatsheets/terraform/</guid><description>Useful Snippets</description><content>&lt;h1 id="useful-snippets">Useful Snippets&lt;/h1>
 &lt;iframe
 src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=javascript&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%0a%2f%2f%20work%20around%20for%20error%20%22Inconsistent%20conditional%20result%20types%22%20when%20use%20tenary%20operator%20between%20different%20maps%0alocals%20%7b%0a%20%20map_bool%20%3d%20%7b%0a%20%20%20%20true%20%3d%20local.your_map%0a%20%20%20%20false%20%3d%20%7b%7d%0a%20%20%7d%0a%7d%0amodule%20%22s3-bucket%22%20%7b%0a%20%20%20%20map_key%20%3d%20local.map_bool%5bvar.condition_var%5d%0a%7d%0a'
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
@@ -83,7 +83,219 @@ tcpdump分析过的问题，及分析过程&lt;/p>
 &lt;h2 id="未涉及">未涉及&lt;/h2>
 &lt;ul>
 &lt;li>还有哪些地方比较擅长，但是没有问到的&lt;/li>
-&lt;/ul></content></item><item><title>Yq &amp; Jq Cheatsheet</title><link>/cheatsheets/jq-yq/</link><pubDate>Tue, 13 Apr 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/jq-yq/</guid><description/><content/></item><item><title>Kubectl Cheatsheet</title><link>/cheatsheets/kubectl/</link><pubDate>Tue, 23 Mar 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/kubectl/</guid><description>Kubectl Cheatsheet Docs:
+&lt;/ul></content></item><item><title>一种我喜欢的互联网公司应用服务命名规范</title><link>/posts/one-better-service-naming-convention/</link><pubDate>Sun, 23 May 2021 21:00:00 +0800</pubDate><guid>/posts/one-better-service-naming-convention/</guid><description>服务名的作用 给人用，标识一个服务，便于团队沟通协作 给程序用，用于围绕该应用的各种资源的命名，进而用于自动化处理，例如 给云资源命名， dev-fooapp-ec2 给k8s资源命名, fooapp-ingress, fooapp-deployment 给域名命名 foo.example.com 常见命名风格 camelCase, 首字母小写，后续每个单词首字母大写，比较常见应用于Java等编程语言 PascalCase, 跟camelCase 类似，但是每个单词首字母大写 snake_case, 比较常见于C，bash等大多数编程语言 kebab-case, 跟snake_case 类似，只不过用的是短横线-而非下划线 Pascal-Kebab-Hybride-Case, 微软powershell里见过 Pasical_Snake_Hybride_Case, 不常见 snake_kebab-hybrade_case, 看到有些头痛&amp;hellip; Snake_Kebab-Hybrade_Case, 看到十分头痛&amp;hellip; Snake_kebab-hybrade_Case, 脑袋要炸了&amp;hellip; lowercase, 全小写，但是如果命名不好，会影响人肉眼可读性 命名风格没有好坏之分, 只有适合的场景, 以及最重要的是要 风格统一, 跟团队保持统一, 跟开源社区保持统一
+服务名如何命名 首先前面提到，服务名一个很重要的作用是，用于构成其他资源名，进而我们可以通过资源名中包含的服务名来识别 该资源属于哪一个服务. 我们互联网服务中可能会使用到各种各样的资源，会使用服务名的资源包括但不限于
+各种云资源命名，Tag名 容器/K8S相关的各种资源 程序、脚本的变量名/方法名 配置项 hostname，domain name 各种资源都会有各种限制，例如
+domain name不允许有_下划线,同理会用到hostname或者domain name的地方，都不允许，例如aws的alb名 部分web服务器例如nginx，会默认drop掉name中包含_的http header, 因此http header 不允许有_ 有的场景严格区分大小写，有的场景仅能用小写、仅能用大写，或者会自动转换 几乎所有编程语言变量名，不允许包含短横线-， 例如你不能将变量名命名为 FOO-SERVICE-API 各种全文搜索引擎会对-进行分词, 因此，如果你搜索 foo-service 你会搜到包含foo或者包含service的结果，如果你搜索fooservice那只有fooservice结果，这个在日志搜索里经常遇到 由于以上限制存在，很多工具或者框架，会做一些自动转换处理，例如 snake_case变CamelCase, 大写变小写，自动去掉-或者_， 我们在编写脚本的时候也要按需做这些处理，以适应要求。</description><content>
+&lt;img src="programmer-s-hardest-task.png" class="left" style="border-radius: 8px;" />
+&lt;h2 id="服务名的作用">服务名的作用&lt;/h2>
+&lt;ul>
+&lt;li>给人用，标识一个服务，便于团队沟通协作&lt;/li>
+&lt;li>给程序用，用于围绕该应用的各种资源的命名，进而用于自动化处理，例如
+&lt;ul>
+&lt;li>给云资源命名， dev-fooapp-ec2&lt;/li>
+&lt;li>给k8s资源命名, fooapp-ingress, fooapp-deployment&lt;/li>
+&lt;li>给域名命名 foo.example.com&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="常见命名风格">常见命名风格&lt;/h2>
+&lt;ul>
+&lt;li>camelCase, 首字母小写，后续每个单词首字母大写，比较常见应用于Java等编程语言&lt;/li>
+&lt;li>PascalCase, 跟camelCase 类似，但是每个单词首字母大写&lt;/li>
+&lt;li>snake_case, 比较常见于C，bash等大多数编程语言&lt;/li>
+&lt;li>kebab-case, 跟snake_case 类似，只不过用的是短横线-而非下划线&lt;/li>
+&lt;li>Pascal-Kebab-Hybride-Case, 微软powershell里见过&lt;/li>
+&lt;li>Pasical_Snake_Hybride_Case, 不常见&lt;/li>
+&lt;li>snake_kebab-hybrade_case, 看到有些头痛&amp;hellip;&lt;/li>
+&lt;li>Snake_Kebab-Hybrade_Case, 看到十分头痛&amp;hellip;&lt;/li>
+&lt;li>Snake_kebab-hybrade_Case, 脑袋要炸了&amp;hellip;&lt;/li>
+&lt;li>lowercase, 全小写，但是如果命名不好，会影响人肉眼可读性&lt;/li>
+&lt;/ul>
+&lt;p>命名风格没有好坏之分, 只有适合的场景, 以及最重要的是要 &lt;strong>风格统一&lt;/strong>, 跟团队保持统一, 跟开源社区保持统一&lt;/p>
+&lt;h2 id="服务名如何命名">服务名如何命名&lt;/h2>
+&lt;p>首先前面提到，服务名一个很重要的作用是，&lt;strong>用于构成其他资源名&lt;/strong>，进而我们可以通过资源名中包含的服务名来识别 该资源属于哪一个服务.
+我们互联网服务中可能会使用到各种各样的资源，会使用服务名的资源包括但不限于&lt;/p>
+&lt;ul>
+&lt;li>各种云资源命名，Tag名&lt;/li>
+&lt;li>容器/K8S相关的各种资源&lt;/li>
+&lt;li>程序、脚本的变量名/方法名&lt;/li>
+&lt;li>配置项&lt;/li>
+&lt;li>hostname，domain name&lt;/li>
+&lt;/ul>
+&lt;p>各种资源都会有各种限制，例如&lt;/p>
+&lt;ol>
+&lt;li>domain name不允许有&lt;code>_&lt;/code>下划线,同理会用到hostname或者domain name的地方，都不允许，例如aws的alb名&lt;/li>
+&lt;li>部分web服务器例如nginx，会默认drop掉name中包含&lt;code>_&lt;/code>的http header, 因此http header 不允许有&lt;code>_&lt;/code>&lt;/li>
+&lt;li>有的场景严格区分大小写，有的场景仅能用小写、仅能用大写，或者会自动转换&lt;/li>
+&lt;li>几乎所有编程语言变量名，不允许包含短横线&lt;code>-&lt;/code>， 例如你不能将变量名命名为 FOO-SERVICE-API&lt;/li>
+&lt;li>各种全文搜索引擎会对&lt;code>-&lt;/code>进行分词, 因此，如果你搜索 foo-service 你会搜到包含foo或者包含service的结果，如果你搜索fooservice那只有fooservice结果，这个在日志搜索里经常遇到&lt;/li>
+&lt;/ol>
+&lt;p>由于以上限制存在，很多工具或者框架，会做一些自动转换处理，例如 snake_case变CamelCase, 大写变小写，自动去掉&lt;code>-&lt;/code>或者&lt;code>_&lt;/code>， 我们在编写脚本的时候也要按需做这些处理，以适应要求。&lt;/p>
+&lt;p>所以，有没有一种可以规避以上大部分限制的，有，那就是全部小写，&lt;strong>牺牲一丢丢人眼可读性换取极大提升程序可处理性&lt;/strong>.&lt;/p>
+&lt;p>全小写可读性不好，是否可以用 kebab-case呢? 假如 我们有3个服务 foo, foo-api, foo-api-gateway&amp;hellip;&lt;/p>
+&lt;ul>
+&lt;li>你搜索foo的日志的时候，会找不到你想要的&lt;/li>
+&lt;li>你用terraform创建ec2的时候，你的Name Tag可能是下面的, 当你用脚本想通过解析tag获取它属于哪个serice的时候，会比较困难
+&lt;ul>
+&lt;li>prod-orgname-foo-ec2&lt;/li>
+&lt;li>prod-orgname-foo-api-ec2&lt;/li>
+&lt;li>prod-orgname-foo-api-gateway-ec2
+如果是这样，是不是好很多&lt;/li>
+&lt;li>prod-orgname-foo-ec2&lt;/li>
+&lt;li>prod-orgname-fooapi-ec2&lt;/li>
+&lt;li>prod-orgname-fooapigateway-ec2&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="比较好的服务命名规范">比较好的服务命名规范&lt;/h2>
+&lt;p>好的名称目标是&lt;/p>
+&lt;ol>
+&lt;li>保持良好的人眼可读性, 对人友好&lt;/li>
+&lt;li>规避大部分情况的限制, 对程序友好&lt;/li>
+&lt;/ol>
+&lt;p>因此可以使用如下规则&lt;/p>
+&lt;ol>
+&lt;li>使用1~3个有明确意义的全小写单词或者数字组成(但不能用数字开头), 见名知意，不要超过20个字符, 不要使用生僻词。 好的例子: &lt;code>mysql&lt;/code> &lt;code>github&lt;/code> &lt;code>springbootadmin&lt;/code> &lt;code>phpmyadmin&lt;/code> &lt;code>elasticsearch&lt;/code> &lt;code>alertmanager&lt;/code> &lt;code>djangorestframework&lt;/code>. 不好的例子：&lt;code>kubernetes&lt;/code>, 太生僻，以至于大家都用&lt;code>k8s&lt;/code>取代&lt;/li>
+&lt;li>不要使用特殊代号, 除非是轮子类项目&lt;/li>
+&lt;li>推荐使用 业务名+功能名的方式，比如 &lt;code>paymentapi&lt;/code> &lt;code>paymentjob&lt;/code> &lt;code>userconsole&lt;/code> &lt;code>usercenter&lt;/code> &lt;code>orderapi&lt;/code> &lt;code>orderui&lt;/code>&lt;/li>
+&lt;li>可以包含数字，数字可以起到了分隔符的作用，有利于提高可读性，例如可以用数字4来做for的谐音, 可以用于有特定关系的应用，例如&lt;code>log4j&lt;/code>; 2作为to的谐音, 可以用于有转换功能的应用, 例如&lt;code>json2yaml&lt;/code>&lt;/li>
+&lt;li>避免使用一些太general的词汇，比如 &lt;code>mainapp&lt;/code>, &lt;code>defaultapp&lt;/code>, &lt;code>webapp&lt;/code>&lt;/li>
+&lt;li>避免使用new/old含有历史信息的词汇，比如如果你重构了一个全新版本的foo，起名为newfoo，如果再有重构呢？可以用 foo2 foo3&lt;/li>
+&lt;li>慎用缩写，除非是well known的缩写，例如，用&lt;code>k8s&lt;/code> &lt;code>kube&lt;/code>缩写来代指 kubernetes，因此比较好的名字有 &lt;code>kubectl&lt;/code> &lt;code>kubectx&lt;/code>, 再例如用 &lt;code>gw&lt;/code> 代替 &lt;code>gateway&lt;/code>, &lt;code>svc&lt;/code> 代替 &lt;code>service&lt;/code>, &lt;code>es&lt;/code> 代替 &lt;code>elasticsearch&lt;/code>, &lt;code>mgmt&lt;/code> 替代 &lt;code>management&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="常见功能词汇列表参考">常见功能词汇列表参考&lt;/h2>
+&lt;p>加上你的业务词汇，就是一个很好的服务名&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>功能&lt;/th>
+&lt;th>词汇&lt;/th>
+&lt;th>缩写&lt;/th>
+&lt;th>例子&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>http api&lt;/td>
+&lt;td>api&lt;/td>
+&lt;td>api&lt;/td>
+&lt;td>orderapi&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>api 网关&lt;/td>
+&lt;td>gateway&lt;/td>
+&lt;td>gw&lt;/td>
+&lt;td>ordergw/ordergateway/orderapigw&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>web页面&lt;/td>
+&lt;td>web&lt;/td>
+&lt;td>web&lt;/td>
+&lt;td>orderweb&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>csr/ssr的前端页面&lt;/td>
+&lt;td>ui&lt;/td>
+&lt;td>ui&lt;/td>
+&lt;td>orderui&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>管理后台&lt;/td>
+&lt;td>console&lt;/td>
+&lt;td>console&lt;/td>
+&lt;td>orderconsole&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>管理后台&lt;/td>
+&lt;td>admin&lt;/td>
+&lt;td>admin&lt;/td>
+&lt;td>orderadmin&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>管理后台&lt;/td>
+&lt;td>management&lt;/td>
+&lt;td>mgmt&lt;/td>
+&lt;td>ordermgmt&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>后台job类&lt;/td>
+&lt;td>job&lt;/td>
+&lt;td>job&lt;/td>
+&lt;td>orderjob&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>后台job类&lt;/td>
+&lt;td>task&lt;/td>
+&lt;td>task&lt;/td>
+&lt;td>ordertask&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>后台job类&lt;/td>
+&lt;td>cron&lt;/td>
+&lt;td>cron&lt;/td>
+&lt;td>ordercron&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>后台job类&lt;/td>
+&lt;td>runner&lt;/td>
+&lt;td>runner&lt;/td>
+&lt;td>orderprocessrunner&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>调度器类&lt;/td>
+&lt;td>scheduler&lt;/td>
+&lt;td>scheduler&lt;/td>
+&lt;td>fooscheduler&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>认证/授权&lt;/td>
+&lt;td>auth&lt;/td>
+&lt;td>auth&lt;/td>
+&lt;td>userauth&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>通知类&lt;/td>
+&lt;td>notify&lt;/td>
+&lt;td>notify&lt;/td>
+&lt;td>ordernotify&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>通知类&lt;/td>
+&lt;td>message&lt;/td>
+&lt;td>msg&lt;/td>
+&lt;td>ordermsg&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>告警类&lt;/td>
+&lt;td>alert&lt;/td>
+&lt;td>alert&lt;/td>
+&lt;td>useralert&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>数据处理类&lt;/td>
+&lt;td>data&lt;/td>
+&lt;td>data&lt;/td>
+&lt;td>userdata&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>平台类&lt;/td>
+&lt;td>platform&lt;/td>
+&lt;td>platform&lt;/td>
+&lt;td>userplatform&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></content></item><item><title>Yq &amp; Jq Cheatsheet</title><link>/cheatsheets/jq-yq/</link><pubDate>Tue, 13 Apr 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/jq-yq/</guid><description/><content/></item><item><title>k8s service troubleshoot</title><link>/posts/k8s-service-troubleshoot/</link><pubDate>Tue, 23 Mar 2021 21:00:00 +0800</pubDate><guid>/posts/k8s-service-troubleshoot/</guid><description>运行在kubernetes 的服务排错思路 https://containersolutions.github.io/runbooks/posts/kubernetes/crashloopbackoff</description><content>&lt;h2 id="运行在kubernetes-的服务排错思路">运行在kubernetes 的服务排错思路&lt;/h2>
+&lt;ol>
+&lt;li>&lt;/li>
+&lt;/ol>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0ak%20-n%20app%20describe%20po%20POD_NAME%20%7c%20grep%20-C%205%20%27Last%20State%27%0a%20%20%20%20%20%20.%2fbridge-api%0a%20%20%20%20%20%20--config%0a%20%20%20%20%20%20config.toml%0a%20%20%20%20State%3a%20%20%20%20%20%20%20%20%20%20Running%0a%20%20%20%20%20%20Started%3a%20%20%20%20%20%20Fri%2c%2022%20Apr%202022%2022%3a04%3a13%20%2b0800%0a%20%20%20%20Last%20State%3a%20%20%20%20%20Terminated%0a%20%20%20%20%20%20Reason%3a%20%20%20%20%20%20%20Error%0a%20%20%20%20%20%20Exit%20Code%3a%20%20%20%202%0a%20%20%20%20%20%20Started%3a%20%20%20%20%20%20Fri%2c%2022%20Apr%202022%2021%3a54%3a45%20%2b0800%0a%20%20%20%20%20%20Finished%3a%20%20%20%20%20Fri%2c%2022%20Apr%202022%2022%3a01%3a29%20%2b0800%0a%20%20%20%20Ready%3a%20%20%20%20%20%20%20%20%20%20True%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;p>&lt;a href="https://containersolutions.github.io/runbooks/posts/kubernetes/crashloopbackoff">https://containersolutions.github.io/runbooks/posts/kubernetes/crashloopbackoff&lt;/a>&lt;/p></content></item><item><title>Kubectl Cheatsheet</title><link>/cheatsheets/kubectl/</link><pubDate>Tue, 23 Mar 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/kubectl/</guid><description>Kubectl Cheatsheet Docs:
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands https://erosb.github.io/post/json-patch-vs-merge-patch/ Viewing, Finding Resources Nodes # get node status confditions JSONPATH=&amp;#39;{range .items[*]}{@.metadata.name}: {range @.status.conditions[*]}{@.type}={@.status}, {end}{&amp;#34;\n&amp;#34;}{end}&amp;#39; \ &amp;amp;&amp;amp; kubectl get nodes -o jsonpath=&amp;#34;$JSONPATH&amp;#34; # check node cpu / memory usage kubectl top pod # check node status kubectl describe nodes kubernetes-minion-emt8.c.myproject.internal Pods # get resource sort by name kubectl get services --sort-by=.metadata.name # check pod cpu / memory usage # all pod in current namespace kubectl top pod # all pod and its containers in current namespace kubectl top pod --containers # this pod and its containers in current namespace kubectl top pod nginx-0 --containers # sort by cpu kubectl top pod --sort-by=cpu --no-headers # sort by memory kubectl top pod --sort-by=memory --no-headers # get pods which are not in Running kubectl get pods --field-selector=status.</description><content>&lt;h1 id="kubectl-cheatsheet">Kubectl Cheatsheet&lt;/h1>
 &lt;p>Docs:&lt;/p>
 &lt;ul>
@@ -496,8 +708,7 @@ src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
-&lt;/iframe></content></item><item><title/><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>About Me</description><content>&lt;h1 id="about-me">About Me&lt;/h1></content></item><item><title/><link>/cheatsheets/mongo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/mongo/</guid><description/><content/></item><item><title/><link>/cheatsheets/postgresql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/postgresql/</guid><description/><content/></item><item><title/><link>/icon-collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/icon-collections/</guid><description>Icon Collections This is an icon collections</description><content>&lt;h1 id="icon-collections">Icon Collections&lt;/h1>
-&lt;p>This is an icon collections&lt;/p></content></item><item><title/><link>/tools/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tools/</guid><description>Useful tools collection IP Calcultor: An ip calcultor Jstack Review: Analyze jstack thread dump online Format Tools: For JSON/YAML/XML and etc. Transform: For JSON/YAML/XML and etc. Hash Tools: md5, sha256, base64 and etc. JWT Debugger: JWT token debugger Simple Drawer: Simple Drawer Image Converter: An online image converter Carbon: A code to beautiful image tool Ray.so: A code to beautiful image tool Regex101: Regular expresssion tester Font Awesome: icons SuperTinyIcons: icons excalidraw: Draw diagram online drawio: Draw IO diagramming online My Mind: Simple mind map Hoppscotch: hoppscotch, a light-weight, web based API development suite Kubernetes Network Policy Viewer:</description><content>&lt;h1 id="useful-tools-collection">Useful tools collection&lt;/h1>
+&lt;/iframe></content></item><item><title/><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>About Me</description><content>&lt;h1 id="about-me">About Me&lt;/h1></content></item><item><title/><link>/cheatsheets/mongo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/mongo/</guid><description/><content/></item><item><title/><link>/cheatsheets/postgresql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cheatsheets/postgresql/</guid><description/><content/></item><item><title/><link>/icon-collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/icon-collections/</guid><description>Icon Collections</description><content>&lt;h1 id="icon-collections">Icon Collections&lt;/h1></content></item><item><title/><link>/tools/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/tools/</guid><description>Useful tools collection IP Calcultor: An ip calcultor Jstack Review: Analyze jstack thread dump online Format Tools: For JSON/YAML/XML and etc. Transform: For JSON/YAML/XML and etc. Hash Tools: md5, sha256, base64 and etc. JWT Debugger: JWT token debugger Simple Drawer: Simple Drawer Image Converter: An online image converter Carbon: A code to beautiful image tool Ray.so: A code to beautiful image tool Regex101: Regular expresssion tester Font Awesome: icons SuperTinyIcons: icons excalidraw: Draw diagram online drawio: Draw IO diagramming online My Mind: Simple mind map Hoppscotch: hoppscotch, a light-weight, web based API development suite Kubernetes Network Policy Viewer:</description><content>&lt;h1 id="useful-tools-collection">Useful tools collection&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a href="/ip-calculator">IP Calcultor&lt;/a>: An ip calcultor&lt;/li>
 &lt;li>&lt;a href="/jstack-review">Jstack Review&lt;/a>: Analyze jstack thread dump online&lt;/li>
