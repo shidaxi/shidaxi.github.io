@@ -1,0 +1,4 @@
+{{ $path := (path.Dir (.Get "dir")) }}
+{{ range os.ReadDir $path }}
+  <img src='svg/{{ .Name }}' height="50px" width="50px" />
+{{ end }}
