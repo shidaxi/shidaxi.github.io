@@ -2,7 +2,7 @@
 服务名如何命名 首先前面提到，服务名一个很重要的作用是，用于构成其他资源名，进而我们可以通过资源名中包含的服务名来识别 该资源属于哪一个服务. 我们互联网服务中可能会使用到各种各样的资源，会使用服务名的资源包括但不限于
 各种云资源命名，Tag名 容器/K8S相关的各种资源 程序、脚本的变量名/方法名 配置项 hostname，domain name 各种资源都会有各种限制，例如
 domain name不允许有_下划线,同理会用到hostname或者domain name的地方，都不允许，例如aws的alb名 部分web服务器例如nginx，会默认drop掉name中包含_的http header, 因此http header 不允许有_ 有的场景严格区分大小写，有的场景仅能用小写、仅能用大写，或者会自动转换 几乎所有编程语言变量名，不允许包含短横线-， 例如你不能将变量名命名为 FOO-SERVICE-API 各种全文搜索引擎会对-进行分词, 因此，如果你搜索 foo-service 你会搜到包含foo或者包含service的结果，如果你搜索fooservice那只有fooservice结果，这个在日志搜索里经常遇到 由于以上限制存在，很多工具或者框架，会做一些自动转换处理，例如 snake_case变CamelCase, 大写变小写，自动去掉-或者_， 我们在编写脚本的时候也要按需做这些处理，以适应要求。</description><content>
-&lt;img src="programmer-s-hardest-task.png" class="left" style="border-radius: 8px;" />
+&lt;img src="imgs/programmer-s-hardest-task.png" class="left" style="border-radius: 8px;" />
 &lt;h2 id="服务名的作用">服务名的作用&lt;/h2>
 &lt;ul>
 &lt;li>给人用，标识一个服务，便于团队沟通协作&lt;/li>
