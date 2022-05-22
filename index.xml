@@ -698,7 +698,7 @@ src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
-&lt;/iframe></content></item><item><title>Docker Cheatsheet</title><link>/cheatsheets/docker/</link><pubDate>Wed, 13 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/docker/</guid><description/><content/></item><item><title>Elasticsearch Cheatsheet</title><link>/cheatsheets/elasticsearch/</link><pubDate>Mon, 23 Nov 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/elasticsearch/</guid><description/><content/></item><item><title>Ansible Cheatsheet</title><link>/cheatsheets/ansible/</link><pubDate>Fri, 13 Nov 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/ansible/</guid><description/><content/></item><item><title>Number Code</title><link>/cheatsheets/number-code/</link><pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/number-code/</guid><description> number code number code 0 鸭蛋 1 铅笔 2 鹅 3 耳朵 4 帆船 5 钩子 6 哨子 7 镰刀 8 葫芦 9 酒 00 眼睛 01 02 灵儿 03 灵山大佛 04 零食 05 莲藕 06 07 邦德 08 篱笆 09 菱角 10 警察 11 筷子 12 婴儿 13 医生 14 钥匙 15 鹦鹉 16 石榴 17 仪器 18 罗汉 19 药酒 20 胖妞 21 鳄鱼 22 猛禽 23 乔丹 24 科比 25 二胡 26 27 耳机 28 恶霸 29 二舅 30 三轮车 31 舰载机 32 33 闪闪星星 34 办三丝 35 珊瑚 36 37 三七药材 38 女人 39 感冒灵 40 司令 41 司仪 42 43 44 蛇 45 师父 46 石榴 47 司机 48 SPA 49 天安门 50 五菱 51 工人 52 53 54 青年 55 火车 56 德邦物流 57 武器 58 杨幂 59 五角星 60 花甲米线 61 儿童 62 63 硫酸 64 65 66 溜溜球 67 油漆 68 69 太极 70 麒麟 71 奇异果 72 73 青山 74 骑士 75 76 77 牛郎织女 78 79 气球 80 81 82 拉菲 83 84 消毒液 85 86 八路 87 88 爸爸 89 90 91 92 93 旧伞 94 95 汽油 96 ICU 97 香港 98 酒吧 99 舅舅</description><content>&lt;table>
+&lt;/iframe></content></item><item><title>Docker Cheatsheet</title><link>/cheatsheets/docker/</link><pubDate>Wed, 13 Jan 2021 00:00:00 +0800</pubDate><guid>/cheatsheets/docker/</guid><description/><content/></item><item><title>Elasticsearch Cheatsheet</title><link>/cheatsheets/elasticsearch/</link><pubDate>Mon, 23 Nov 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/elasticsearch/</guid><description/><content/></item><item><title>Ansible Cheatsheet</title><link>/cheatsheets/ansible/</link><pubDate>Fri, 13 Nov 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/ansible/</guid><description/><content/></item><item><title>Number Code</title><link>/cheatsheets/number-code/</link><pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/number-code/</guid><description> number code number code 0 鸭蛋 1 铅笔 2 鹅 3 耳朵 4 帆船 5 钩子 6 哨子 7 镰刀 8 葫芦 9 酒 00 眼睛 01 02 灵儿 03 灵山大佛 04 零食 05 莲藕 06 07 邦德 08 篱笆 09 菱角 10 警察 11 筷子 12 婴儿 13 医生 14 钥匙 15 鹦鹉 16 石榴 17 仪器 18 罗汉 19 药酒 20 胖妞 21 鳄鱼 22 猛禽 23 乔丹 24 科比 25 二胡 26 27 耳机 28 恶霸 29 二舅 30 三轮车 31 舰载机 32 33 闪闪星星 34 办三丝 35 珊瑚 36 37 三七药材 38 女人 39 感冒灵 40 司令 41 司仪 42 43 44 蛇 45 师父 46 石榴 47 司机 48 SPA 49 天安门 50 五菱 51 工人 52 53 54 青年 55 火车 56 德邦物流 57 武器 58 杨幂 59 五角星 60 花甲米线 61 儿童 62 63 硫酸 64 64bit-linux 65 66 溜溜球 67 油漆 68 69 太极 70 麒麟 71 奇异果 72 孙悟空 73 青山 74 骑士 75 76 77 牛郎织女 78 79 气球 80 八零后 81 西游记81难 82 拉菲 83 84 消毒液 85 86 八路 87 88 爸爸 89 90 91 92 93 旧伞 94 95 汽油 96 ICU 97 香港 98 酒吧 99 舅舅</description><content>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>number&lt;/th>
@@ -932,7 +932,7 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/tr>
 &lt;tr>
 &lt;td>64&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>64bit-linux&lt;/td>
 &lt;td>65&lt;/td>
 &lt;td>&lt;/td>
 &lt;/tr>
@@ -956,7 +956,7 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/tr>
 &lt;tr>
 &lt;td>72&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>孙悟空&lt;/td>
 &lt;td>73&lt;/td>
 &lt;td>青山&lt;/td>
 &lt;/tr>
@@ -980,9 +980,9 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/tr>
 &lt;tr>
 &lt;td>80&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>八零后&lt;/td>
 &lt;td>81&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>西游记81难&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>82&lt;/td>
