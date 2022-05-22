@@ -9,7 +9,7 @@ keywords:
 - convention
 ---
 
-{{< image src="programmer-s-hardest-task.png" style="border-radius: 8px;" >}}
+{{< image src="imgs/programmer-s-hardest-task.png" style="border-radius: 8px;" >}}
 
 ## 服务名的作用
 
