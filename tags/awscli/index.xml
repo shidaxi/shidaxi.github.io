@@ -92,4 +92,11 @@ src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;h1 id="ecr">ecr&lt;/h1>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20docker%20login%20ecr%0aaws%20ecr%20get-login-password%20--region%20region%20%7c%20docker%20login%20--username%20AWS%20--password-stdin%20aws_account_id.dkr.ecr.region.amazonaws.com%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
 &lt;/iframe></content></item></channel></rss>
