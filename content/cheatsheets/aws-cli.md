@@ -208,3 +208,8 @@ aws route53 list-resource-record-sets \
 
 {{< /carbon >}}
 
+# ecr 
+{{< carbon lang="shell" >}}
+# docker login ecr
+aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com
+{{< /carbon >}}
