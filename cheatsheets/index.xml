@@ -842,8 +842,16 @@ sandbox="allow-scripts allow-same-origin">
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></content></item><item><title>Misc</title><link>/cheatsheets/misc/</link><pubDate>Tue, 12 May 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/misc/</guid><description>ffmpeg -i a.ts -bsf:a aac_adtstoasc -vcodec copy a.ts</description><content>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ffmpeg -i a.ts -bsf:a aac_adtstoasc -vcodec copy a.ts
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></content></item><item><title>Vim Cheatsheet</title><link>/cheatsheets/vim/</link><pubDate>Tue, 12 May 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/vim/</guid><description/><content/></item><item><title>OpenSSL Cheatsheet</title><link>/cheatsheets/openssl/</link><pubDate>Fri, 13 Mar 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/openssl/</guid><description/><content>&lt;iframe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></content></item><item><title>Vim Cheatsheet</title><link>/cheatsheets/vim/</link><pubDate>Tue, 12 May 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/vim/</guid><description/><content/></item><item><title>OpenSSL Cheatsheet</title><link>/cheatsheets/openssl/</link><pubDate>Fri, 13 Mar 2020 00:00:00 +0800</pubDate><guid>/cheatsheets/openssl/</guid><description>acme.sh create certificate with letsencrypt https://github.com/acmesh-official/acme.sh</description><content>&lt;iframe
 src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20check%20https%20server%20certificate%20%0aopenssl%20s_client%20-showcerts%20-servername%20www.example.com%20-connect%20httpbin.org%3a443%20%3c%2fdev%2fnull%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;h2 id="acmesh--create-certificate-with-letsencrypt">acme.sh create certificate with letsencrypt&lt;/h2>
+&lt;p>&lt;a href="https://github.com/acmesh-official/acme.sh">https://github.com/acmesh-official/acme.sh&lt;/a>&lt;/p>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=shell&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20for%20aliyun%20dns%0aexport%20Ali_Key%3d%0aexport%20Ali_Secret%3d%0a%0a~%2f.acme.sh%2facme.sh%20--issue%20-d%20example.com%20-d%20%2a.example.com%20%20--dns%20dns_ali%0a%0a%23%20for%20godaddy%0aexport%20GD_Secret%3d%0a~%2f.acme.sh%2facme.sh%20--issue%20-d%20example.com%20-d%20%2a.example.com%20%20--dns%20dns_gd%0a'
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
