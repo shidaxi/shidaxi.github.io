@@ -285,8 +285,6 @@ spec:
 # get Pod Name and Pod IP 
 containers:
   - env:
-    - name: BITNAMI_DEBUG
-      value: "false"
     - name: MY_POD_IP
       valueFrom:
         fieldRef:
