@@ -272,4 +272,10 @@ src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&
 style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
 onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
 sandbox="allow-scripts allow-same-origin">
+&lt;/iframe>
+&lt;iframe
+src='https://shuai.dev/embed?bg=rgba(74,144,226,0)&amp;t=blackboard&amp;wt=none&amp;l=yaml&amp;ds=false&amp;dsyoff=60px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=5px&amp;ph=5px&amp;ln=false&amp;fl=1&amp;fm=Fira+Code&amp;fs=16px&amp;lh=152%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%0a%23%20affinity%20run%20pod%20on%20different%20node%0a%20%20affinity%3a%0a%20%20%20%20podAntiAffinity%3a%0a%20%20%20%20%20%20preferredDuringSchedulingIgnoredDuringExecution%3a%0a%20%20%20%20%20%20-%20podAffinityTerm%3a%0a%20%20%20%20%20%20%20%20%20%20labelSelector%3a%0a%20%20%20%20%20%20%20%20%20%20%20%20matchLabels%3a%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20app.kubernetes.io%2fname%3a%20nginx%0a%20%20%20%20%20%20%20%20%20%20namespaces%3a%0a%20%20%20%20%20%20%20%20%20%20-%20apisix-system%0a%20%20%20%20%20%20%20%20%20%20topologyKey%3a%20kubernetes.io%2fhostname%0a%20%20%20%20%20%20%20%20weight%3a%201%0a%0a'
+style='width: 100%; border:0; transform: scale(1); overflow:hidden;'
+onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+sandbox="allow-scripts allow-same-origin">
 &lt;/iframe></content></item></channel></rss>
