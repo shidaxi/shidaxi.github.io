@@ -280,3 +280,21 @@ spec:
       - secretRef:
           name: nginx                                                                      
 {{< /carbon >}}
+
+{{< carbon lang="yaml" >}}
+# get Pod Name and Pod IP 
+containers:
+  - env:
+    - name: BITNAMI_DEBUG
+      value: "false"
+    - name: MY_POD_IP
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: status.podIP
+    - name: MY_POD_NAME
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.name
+{{< /carbon >}}
