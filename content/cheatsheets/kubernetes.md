@@ -296,3 +296,21 @@ containers:
           apiVersion: v1
           fieldPath: metadata.name
 {{< /carbon >}}
+
+
+{{< carbon lang="yaml" >}}
+# affinity run pod on different node
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: nginx
+          namespaces:
+          - apisix-system
+          topologyKey: kubernetes.io/hostname
+        weight: 1
+
+{{< /carbon >}}
+
