@@ -46,6 +46,16 @@ kubectl top pod
 kubectl describe nodes kubernetes-minion-emt8.c.myproject.internal
 ```
 
+```bash
+# find out the most hight cpu cost pod of a node
+kubectl get po -A -owide | grep ${NODE_NAME} | awk '{print $1, $2}' | xargs -n2 kubectl top pod --no-headers -n $1 | sort --key 2 -nr | column -t
+
+# find out the most hight memory cost pod of a node
+kubectl get po -A -owide | grep ${NODE_NAME} | awk '{print $1, $2}' | xargs -n2 kubectl top pod --no-headers -n $1 | sort --key 3 -nr | column -t
+
+
+```
+
 ### Pods
 
 ```bash
