@@ -18,7 +18,18 @@ readingTime: false
 {{< carbon lang="shell" >}}
 
 # get height
+
 curl -s -H "Content-Type: application/json" https://bscrpc.com \
+  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' -s \
+  | jq -r -j .result \
+  | xargs -0 printf "%d\n"
+
+curl -s -H "Content-Type: application/json" https://rpc.ankr.com/bsc \
+  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' -s \
+  | jq -r -j .result \
+  | xargs -0 printf "%d\n"
+
+curl -s -H "Content-Type: application/json" https://rpc.ankr.com/eth \
   -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' -s \
   | jq -r -j .result \
   | xargs -0 printf "%d\n"
