@@ -19,19 +19,40 @@ readingTime: false
 
 # get height
 
+# eth
+curl -s -H "Content-Type: application/json" https://rpc.ankr.com/eth \
+  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' \
+  | jq -r -j .result \
+  | xargs -0 printf "%d\n"
+
+# bsc
 curl -s -H "Content-Type: application/json" https://bscrpc.com \
-  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' -s \
+  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' \
   | jq -r -j .result \
   | xargs -0 printf "%d\n"
 
 curl -s -H "Content-Type: application/json" https://rpc.ankr.com/bsc \
-  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' -s \
+  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' \
   | jq -r -j .result \
   | xargs -0 printf "%d\n"
 
-curl -s -H "Content-Type: application/json" https://rpc.ankr.com/eth \
-  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' -s \
+curl -s -H "Content-Type: application/json" https://bsc-dataseed.binance.org \
+  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' \
   | jq -r -j .result \
   | xargs -0 printf "%d\n"
+
+# avalanche
+curl -s -H "Content-Type: application/json" https://rpc.ankr.com/avalanche \
+  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' \
+  | jq -r -j .result \
+  | xargs -0 printf "%d\n"
+
+
+# get syncing 
+
+curl localhost:8545 \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":67}'
 
 {{< /carbon >}}
