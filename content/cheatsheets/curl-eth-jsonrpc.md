@@ -18,7 +18,7 @@ readingTime: false
 {{< carbon lang="shell" >}}
 
 # get height
-curl -H "Content-Type: application/json" https://bscrpc.com \
+curl -s -H "Content-Type: application/json" https://bscrpc.com \
   -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params":[], "id":1}' -s \
   | jq -r -j .result \
   | xargs -0 printf "%d\n"
